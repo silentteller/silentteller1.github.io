@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://linwhitehat.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="前言在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客L1n Blog搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。 最初的诞生我采用的搭建博客的方式是使用 GitHub Pages + hexo 的方式，这个应该是我摸索之后认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速搭建个人博客(github.io）">
+<meta property="og:url" content="https://linwhitehat.github.io/2020/01/28/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(github.io%EF%BC%89/index.html">
+<meta property="og:site_name" content="Pikachu">
+<meta property="og:description" content="前言在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客L1n Blog搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。 最初的诞生我采用的搭建博客的方式是使用 GitHub Pages + hexo 的方式，这个应该是我摸索之后认">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19778981-cfa4669dd48109f9.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19778981-3bf344aaf4a5154b.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19778981-37b659935533d87f.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19778981-8a0b6f110a66ad0e.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19778981-75f2923dd7723e84.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19778981-974ffdc019604c65.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2178672-cfd55a22902a9d2c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2178672-c23d4a5d67c88084.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2178672-b37268df7a7852ca.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2178672-0c8750f5a18dbe03.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2020-01-28T02:52:30.619Z">
+<meta property="article:modified_time" content="2020-01-27T07:36:36.471Z">
+<meta property="article:author" content="L1n">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/19778981-cfa4669dd48109f9.png">
+
+<link rel="canonical" href="https://linwhitehat.github.io/2020/01/28/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(github.io%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>快速搭建个人博客(github.io） | Pikachu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pikachu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://linwhitehat.github.io/2020/01/28/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(github.io%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="L1n">
+      <meta itemprop="description" content="皮卡丘的新晋博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pikachu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          快速搭建个人博客(github.io）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-28 10:52:30" itemprop="dateCreated datePublished" datetime="2020-01-28T10:52:30+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-27 15:36:36" itemprop="dateModified" datetime="2020-01-27T15:36:36+08:00">2020-01-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客<a href="https://linwhitehat.github.io/">L1n Blog</a>搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。</p>
+<h2 id="最初的诞生"><a href="#最初的诞生" class="headerlink" title="最初的诞生"></a>最初的诞生</h2><p>我采用的搭建博客的方式是使用 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a> 的方式，这个应该是我摸索之后认为的对新手最友好也最优质的方式，只需要投入时间学习和运营，就能拥有美观的个人博客。</p>
+<p>1.注册Github账号</p>
+<p>要使用 GitHub Pages，首先你要注册一个<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>账号。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19778981-cfa4669dd48109f9.png" alt=""></p>
+<p>2.安装必备软件</p>
+<p>1)安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a>客户端</p>
+<p>2)安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p>
+<p>3.新建博客</p>
+<p>配置GitHub，步骤如下:</p>
+<p>1)登录GitHub后新建项目（new repository），项目名由两部分组成即GitHub账号名和固定后缀<code>.github.io</code>，比如我的项目就是<code>linwhitehat.github.io</code>，填写完点击创建项目（create repository）。</p>
+<p>2)配置GitHub SSH密钥，本地打开git bash，输入<code>ssh-keygen -t rsa -C &quot;your&#39;s emaill address&quot;</code>，其中your’s email address换成GitHub账号的邮箱地址，第一次点击回车键（Enter）会显示存储位置，第二次点击回车键会显示输入密钥，按照要求输入密钥两次(输入过程是看不到密钥的)，之后在第一次显示的存储位置打开文件id_rsa.pub，复制文件内所有内容，在GitHub中点击头像可看的setting选项，在setting选项中可看到SSH and GPG keys选项，点击new SSH，然后输入title（方便密钥管理的名字），将刚才复制的内容粘贴到key中。</p>
+<p>如果不想自己新建，可以使用现有的他人博客项目进行改建。</p>
+<p>4.使用已有的博客模板</p>
+<p>注册完成后搜索 <code>linwhitehat.github.io</code> 进入<a href="https://github.com/linwhitehat/linwhitehat.github.io" target="_blank" rel="noopener">我的仓库</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19778981-3bf344aaf4a5154b.png" alt=""></p>
+<p>点击右上角的 <strong>Fork</strong> 将我的仓库拉倒你的账号下</p>
+<p>稍等一下，点击刷新，你会看到<strong>Fork</strong>了成功的页面</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19778981-37b659935533d87f.png" alt=""></p>
+<p>3.修改仓库名</p>
+<p>点击<strong>settings</strong>进入设置</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19778981-8a0b6f110a66ad0e.png" alt=""></p>
+<p id = "Rename"></p>
+修改仓库名为 `你的Github账号名.github.io`，然后 Rename
+
+<p><img src="https://upload-images.jianshu.io/upload_images/19778981-75f2923dd7723e84.png" alt=""></p>
+<p>这时你在在浏览器中输入 <code>你的Github账号名.github.io</code> 例如:<code>linwhitehat.github.io</code></p>
+<p>你将会看到如下界面</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19778981-974ffdc019604c65.png" alt=""></p>
+<p>说明已经成功一半了😀当然，还需要修改博客的配置才能变成你的博客。</p>
+<p>若是出现</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2178672-cfd55a22902a9d2c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>则需要 <a href="#Rename">检查一下你的仓库名是否正确</a></p>
+<p>4.修改博客配置</p>
+<p>来到你的仓库，找到<code>_config.yml</code>文件,这是网站的全局配置文件。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2178672-c23d4a5d67c88084.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>点击修改</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2178672-b37268df7a7852ca.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>然后编辑<code>_config.yml</code>的内容</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2178672-0c8750f5a18dbe03.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>接下来我们来详细说说以下配置文件的内容：</p>
+<p>5.基础设置</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Site settings</span><br><span class="line">title: You Blog    				  	#你博客的标题</span><br><span class="line">SEOTitle: 你的博客 | You Blog    	 #显示在浏览器上搜索的时候显示的标题</span><br><span class="line">header-img: img&#x2F;post-bg-rwd.jpg  	#显示在首页的背景图片</span><br><span class="line">email: You@gmail.com	</span><br><span class="line">description: &quot;You Blog&quot;  			 #网站介绍</span><br><span class="line">keyword: &quot;BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone&quot; #关键词</span><br><span class="line">url: &quot;https:&#x2F;&#x2F;qiubaiying.github.io&quot;          # 这个就是填写你的博客地址</span><br><span class="line">baseurl: &quot;&quot;      # 这个我们不用填写</span><br></pre></td></tr></table></figure>
+
+<p>至此，一个初具形态的博客便生成了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>1.<a href="https://www.jianshu.com/p/956c44c87fb1" target="_blank" rel="noopener">博客雏形安装</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/12/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B(Windows10)/" rel="prev" title="LaTeX-Windows10安装教程">
+      <i class="fa fa-chevron-left"></i> LaTeX-Windows10安装教程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/28/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最初的诞生"><span class="nav-number">1.1.</span> <span class="nav-text">最初的诞生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.2.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">L1n</p>
+  <div class="site-description" itemprop="description">皮卡丘的新晋博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L1n</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
