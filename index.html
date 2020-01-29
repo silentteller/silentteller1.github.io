@@ -269,7 +269,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-29 14:53:04" itemprop="dateModified" datetime="2020-01-29T14:53:04+08:00">2020-01-29</time>
+                <time title="修改时间：2020-01-29 17:46:42" itemprop="dateModified" datetime="2020-01-29T17:46:42+08:00">2020-01-29</time>
               </span>
 
           
@@ -283,19 +283,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+          <p>在windows下需要查看端口占用情况，同时排查哪些应用正在使用当前端口。</p>
+<h3 id="1、打开命令行（管理员身份）"><a href="#1、打开命令行（管理员身份）" class="headerlink" title="1、打开命令行（管理员身份）"></a>1、打开命令行（管理员身份）</h3><p>1） 在开始菜单搜索<code>cmd</code>，右键点击<code>命令行提示窗口</code>以管理员身份运行；</p>
+<p>2） 按快捷组合键<code>Ctrl+r</code>，输入<code>cmd</code>。</p>
+<h3 id="2、查看所有端口"><a href="#2、查看所有端口" class="headerlink" title="2、查看所有端口"></a>2、查看所有端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+<p>每个地址后面显示的即端口号，最后一列表示对应的进程号PID。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/07/1530674518-5109-2159693-5342695777bde48d.png" alt=""></p>
+<h3 id="3、查看具体端口使用的进程"><a href="#3、查看具体端口使用的进程" class="headerlink" title="3、查看具体端口使用的进程"></a>3、查看具体端口使用的进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -aon|findstr <span class="string">"8081"</span></span><br></pre></td></tr></table></figure>
+<p>显示使用当前端口的进程情况。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/07/1530674518-6203-2159693-10d9bae7a6e59b06.png" alt=""></p>
+<h3 id="4、查看指定进程"><a href="#4、查看指定进程" class="headerlink" title="4、查看指定进程"></a>4、查看指定进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist|findstr <span class="string">"9088"</span></span><br></pre></td></tr></table></figure>
+<p>查看是哪个进程或者程序占用了 8081 端口，结果是：node.exe。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/07/1530674518-3794-2159693-30d1a50103f28cea.png" alt=""></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html" target="_blank" rel="noopener">Windows下如何查看某个端口被谁占用</a></li>
+</ol>
 
       
     </div>
@@ -346,7 +348,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-29 17:25:12" itemprop="dateModified" datetime="2020-01-29T17:25:12+08:00">2020-01-29</time>
+                <time title="修改时间：2020-01-29 17:29:41" itemprop="dateModified" datetime="2020-01-29T17:29:41+08:00">2020-01-29</time>
               </span>
 
           
@@ -437,7 +439,10 @@
 <p>至此，一个初具形态的博客便生成了。</p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
 <li>本文中新建仓库建立博客的方式，在本地建立仓库后，又再新建一个hexo文件，且将hexo配置托管到GitHub之后，GitHub项目便被hexo文件夹下的<code>.deploy_git</code>覆盖，之后修改博客维护项目只需要在hexo文件夹下的git bash进行hexo处理即可。</li>
+<li>Hexo卸载方式，在git bash执行以下命令：</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-cli -g</span><br><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
+<p>博客相应的文件目录需要手动删除。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://www.jianshu.com/p/956c44c87fb1" target="_blank" rel="noopener">博客雏形安装</a></li>
 </ol>
