@@ -86,7 +86,7 @@
       </tags>
   </entry>
   <entry>
-    <title>快速搭建个人博客(github.io）</title>
+    <title>搭建个人博客(hexo+next+github）</title>
     <url>/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(hexo+next+github%EF%BC%89.html</url>
     <content><![CDATA[<p>在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客<a href="https://linwhitehat.github.io/">Pikachu</a>搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。</p>
 <a id="more"></a>
