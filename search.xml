@@ -21,6 +21,13 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+      </tags>
   </entry>
   <entry>
     <title>逆向分析APK</title>
@@ -41,6 +48,13 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>逆向分析</tag>
+        <tag>APK</tag>
+      </tags>
   </entry>
   <entry>
     <title>Windows查看端口占用</title>
@@ -63,6 +77,13 @@
 <li><a href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html" target="_blank" rel="noopener">Windows下如何查看某个端口被谁占用</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>实用技巧</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>端口查看</tag>
+      </tags>
   </entry>
   <entry>
     <title>快速搭建个人博客(github.io）</title>
@@ -154,6 +175,14 @@
 <li><a href="https://www.jianshu.com/p/956c44c87fb1" target="_blank" rel="noopener">博客雏形安装</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>GitHub</tag>
+      </tags>
   </entry>
   <entry>
     <title>LaTeX-Windows10安装教程</title>
