@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://linwhitehat.github.io/about/index.html</loc>
+    <loc>https://linwhitehat.github.io/404.html</loc>
     
-    <lastmod>2020-01-30T05:34:02.027Z</lastmod>
+    <lastmod>2020-01-30T05:43:48.306Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://linwhitehat.github.io/categories/index.html</loc>
     
-    <lastmod>2020-01-30T01:27:28.951Z</lastmod>
+    <lastmod>2020-01-30T05:42:30.856Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://linwhitehat.github.io/tags/index.html</loc>
     
-    <lastmod>2020-01-30T01:27:04.295Z</lastmod>
+    <lastmod>2020-01-30T05:41:51.122Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linwhitehat.github.io/about/index.html</loc>
+    
+    <lastmod>2020-01-30T05:39:29.387Z</lastmod>
     
   </url>
   
