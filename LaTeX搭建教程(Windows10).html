@@ -53,16 +53,16 @@
 <meta property="og:site_name" content="Pikachu">
 <meta property="og:description" content="作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-install-1.jpg">
-<meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-install-2.jpg">
-<meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-test-1.jpg">
-<meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-test-2.jpg">
+<meta property="og:image" content="https://linwhitehat.github.io/post-texlive-install-1.jpg">
+<meta property="og:image" content="https://linwhitehat.github.io/post-texlive-install-2.jpg">
+<meta property="og:image" content="https://linwhitehat.github.io/post-texlive-test-1.jpg">
+<meta property="og:image" content="https://linwhitehat.github.io/post-texlive-test-2.jpg">
 <meta property="article:published_time" content="2019-10-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-01-30T06:06:48.353Z">
+<meta property="article:modified_time" content="2020-01-30T17:01:46.192Z">
 <meta property="article:author" content="L1n">
 <meta property="article:tag" content="Latex">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://linwhitehat.github.io/images/post-texlive-install-1.jpg">
+<meta name="twitter:image" content="https://linwhitehat.github.io/post-texlive-install-1.jpg">
 
 <link rel="canonical" href="https://linwhitehat.github.io/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B(Windows10).html">
 
@@ -246,7 +246,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-30 14:06:48" itemprop="dateModified" datetime="2020-01-30T14:06:48+08:00">2020-01-30</time>
+                <time title="修改时间：2020-01-31 01:01:46" itemprop="dateModified" datetime="2020-01-31T01:01:46+08:00">2020-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -316,9 +316,9 @@
 </ol>
 <p>当然也可以直接下载我网盘分享的镜像和安装包，可以使用官方提供的md5值进行比对验证文件没有被篡改。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="TexLive-安装"><a href="#TexLive-安装" class="headerlink" title="TexLive 安装"></a>TexLive 安装</h4><p>下载好iso文件之后，由于我是win10系统，可以直接加载iso镜像文件，因此双击打开即可，如果是win7及以前的版本需要先解压iso文件，双击打开install-tl-advanced.bat文件，会出现以下界面：</p>
-<p><img src="/images/post-texlive-install-1.jpg" alt="安装启动界面"></p>
+<p><img src="post-texlive-install-1.jpg" alt="安装启动界面"></p>
 <p>点击<em>修改</em>更换需要安装的文件路径，路径建议不要带有中文和特殊字符；<br>点击<em>Advanced</em>修改安装选项，但默认是所有都选上，所以可以不用修改（因为涉及调用的宏包以及scheme选择，如果不了解还是默认，避免后续麻烦）；<br>点击<em>安装</em>，然后就是漫长的安装过程，安装期间可以做自己的事情，安装完成后显示如下：</p>
-<p><img src="/images/post-texlive-install-2.jpg" alt="安装完成界面"></p>
+<p><img src="post-texlive-install-2.jpg" alt="安装完成界面"></p>
 <p>做一下安装是否成功的检查：</p>
 <ol>
 <li><p>在开始菜单中搜索<em>TeX Live command-line</em>，执行以下命令：</p>
@@ -326,9 +326,9 @@
 </li>
 </ol>
 <p>如果正常会显示如下信息，即正常的texlive版本号：</p>
-<p><img src="/images/post-texlive-test-1.jpg" alt="测试正常界面"></p>
+<p><img src="post-texlive-test-1.jpg" alt="测试正常界面"></p>
 <p>如果显示错误如下，应该是系统环境变量的问题，进入系统环境变量（系统属性-&gt;高级系统设置-&gt;环境变量），将<em>Path</em>环境变量新增texlive进去，即将安装好的texlive文件目录下的bin文件夹所在的路径作为环境变量。</p>
-<p><img src="/images/post-texlive-test-2.jpg" alt="测试错误界面"></p>
+<p><img src="post-texlive-test-2.jpg" alt="测试错误界面"></p>
 <h4 id="TexStudio-安装"><a href="#TexStudio-安装" class="headerlink" title="TexStudio 安装"></a>TexStudio 安装</h4><p>下载好zip压缩文件之后，直接解压就可以使用，十分方便！</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>主要是texstudio需要进行配置，更适合国内人士使用。</p>
 <h4 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h4><p>打开texstudio之后，在主界面中显示的是英文，点击菜单栏的<em>Options</em>，点击<em>Configure TeXstudio</em>，在<em>General</em>选项下将<em>Language</em>选择为<em>zh_CN</em>，点击确定；</p>
@@ -376,7 +376,7 @@
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(github.io%EF%BC%89.html" rel="next" title="快速搭建个人博客(github.io）">
+    <a href="/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(hexo+next+github%EF%BC%89.html" rel="next" title="快速搭建个人博客(github.io）">
       快速搭建个人博客(github.io） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -446,8 +446,10 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="L1n"
-      src="/uploads/portrait.jpg">
+    <a href="/">
+      <img class="site-author-image" itemprop="image" alt="L1n"
+        src="/uploads/portrait.jpg">
+    </a>
   <p class="site-author-name" itemprop="name">L1n</p>
   <div class="site-description" itemprop="description">皮卡丘的新晋博客</div>
 </div>
