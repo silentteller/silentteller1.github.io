@@ -96,7 +96,7 @@
 <li>注册Github账号</li>
 </ol>
 <p>要使用 GitHub Pages，首先你要注册一个<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>账号。</p>
-<p><img src="blog-1.png" alt="GitHub注册页"></p>
+<p><img src="/images/blog-1.png" alt="GitHub注册页"></p>
 <ol start="2">
 <li>安装必备软件</li>
 </ol>
@@ -130,20 +130,20 @@
 <li><span id="Section4">使用已有的博客模板</span></li>
 </ol>
 <p>1) 注册完成后搜索 <code>linwhitehat.github.io</code> 进入<a href="https://github.com/linwhitehat/linwhitehat.github.io" target="_blank" rel="noopener">我的仓库</a></p>
-<p><img src="blog-2.png" alt=""></p>
+<p><img src="/images/blog-2.png" alt=""></p>
 <p>点击右上角的 <strong>Fork</strong> 将我的仓库拉倒你的账号下</p>
 <p>稍等一下，点击刷新，你会看到<strong>Fork</strong>了成功的页面</p>
-<p><img src="blog-3.png" alt=""></p>
+<p><img src="/images/blog-3.png" alt=""></p>
 <p>2) 修改仓库名</p>
 <p>点击<strong>settings</strong>进入设置</p>
-<p><img src="blog-4.png" alt=""></p>
+<p><img src="/images/blog-4.png" alt=""></p>
 <p id = "Rename"></p>
 修改仓库名为 `你的Github账号名.github.io`，然后 Rename
 
-<p><img src="blog-5.png" alt=""></p>
+<p><img src="/images/blog-5.png" alt=""></p>
 <p>这时你在在浏览器中输入 <code>你的Github账号名.github.io</code> 例如:<code>linwhitehat.github.io</code></p>
 <p>你将会看到如下界面</p>
-<p><img src="blog-6.png" alt=""></p>
+<p><img src="/images/blog-6.png" alt=""></p>
 <p>说明已经成功一半了😀当然，还需要修改博客的配置才能变成你的博客。</p>
 <p>若是出现</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2178672-cfd55a22902a9d2c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -218,9 +218,9 @@
 </ol>
 <p>当然也可以直接下载我网盘分享的镜像和安装包，可以使用官方提供的md5值进行比对验证文件没有被篡改。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="TexLive-安装"><a href="#TexLive-安装" class="headerlink" title="TexLive 安装"></a>TexLive 安装</h4><p>下载好iso文件之后，由于我是win10系统，可以直接加载iso镜像文件，因此双击打开即可，如果是win7及以前的版本需要先解压iso文件，双击打开install-tl-advanced.bat文件，会出现以下界面：</p>
-<p><img src="post-texlive-install-1.jpg" alt="安装启动界面"></p>
+<p><img src="/images/post-texlive-install-1.jpg" alt="安装启动界面"></p>
 <p>点击<em>修改</em>更换需要安装的文件路径，路径建议不要带有中文和特殊字符；<br>点击<em>Advanced</em>修改安装选项，但默认是所有都选上，所以可以不用修改（因为涉及调用的宏包以及scheme选择，如果不了解还是默认，避免后续麻烦）；<br>点击<em>安装</em>，然后就是漫长的安装过程，安装期间可以做自己的事情，安装完成后显示如下：</p>
-<p><img src="post-texlive-install-2.jpg" alt="安装完成界面"></p>
+<p><img src="/images/post-texlive-install-2.jpg" alt="安装完成界面"></p>
 <p>做一下安装是否成功的检查：</p>
 <ol>
 <li><p>在开始菜单中搜索<em>TeX Live command-line</em>，执行以下命令：</p>
@@ -228,9 +228,9 @@
 </li>
 </ol>
 <p>如果正常会显示如下信息，即正常的texlive版本号：</p>
-<p><img src="post-texlive-test-1.jpg" alt="测试正常界面"></p>
+<p><img src="/images/post-texlive-test-1.jpg" alt="测试正常界面"></p>
 <p>如果显示错误如下，应该是系统环境变量的问题，进入系统环境变量（系统属性-&gt;高级系统设置-&gt;环境变量），将<em>Path</em>环境变量新增texlive进去，即将安装好的texlive文件目录下的bin文件夹所在的路径作为环境变量。</p>
-<p><img src="post-texlive-test-2.jpg" alt="测试错误界面"></p>
+<p><img src="/images/post-texlive-test-2.jpg" alt="测试错误界面"></p>
 <h4 id="TexStudio-安装"><a href="#TexStudio-安装" class="headerlink" title="TexStudio 安装"></a>TexStudio 安装</h4><p>下载好zip压缩文件之后，直接解压就可以使用，十分方便！</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>主要是texstudio需要进行配置，更适合国内人士使用。</p>
 <h4 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h4><p>打开texstudio之后，在主界面中显示的是英文，点击菜单栏的<em>Options</em>，点击<em>Configure TeXstudio</em>，在<em>General</em>选项下将<em>Language</em>选择为<em>zh_CN</em>，点击确定；</p>
