@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3b6b65;
+  background: #a1af96;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2607,4 +2607,8 @@ hr {
   text-align: center;
   text-indent: 0;
   font-family: STKaiti, serif;
+}
+.text:first-letter {
+  font-size: 72px;
+  float: left; /*2. 加上这行，下沉*/
 }

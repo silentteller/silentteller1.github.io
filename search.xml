@@ -3,29 +3,23 @@
   <entry>
     <title>博客优化(Hexo+Next)</title>
     <url>/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96.html</url>
-    <content><![CDATA[<p>博客搭建完成后，最初的博客雏形一般都比较朴素，功能也有限，所以可以通过优化主题来进行美化博客外观和拓展博客功能。本篇文章主要以可正常访问的Hexo.Mist原型博客为基础，根据自身需求加以优化，而最新版（V7.7）中其实包含很多美化设置，但是默认是关闭状态，同时个性化配置需要修改配置文件等，即使出现一个字母的差错也会导致失效，因此本文对配置文件会具体说明，而目录均是按照我的博客搭建博文中说明的目录结构，可以根据自身目录结构进行转换。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>博客搭建完成后，最初的博客雏形一般都比较朴素，功能也有限，所以可以通过优化主题来进行美化博客外观和拓展博客功能。本篇文章主要以可正常访问的Hexo.Mist原型博客为基础，根据自身需求加以优化，而最新版（V7.7）中其实包含很多美化设置，但是默认是关闭状态，同时个性化配置需要修改配置文件等，即使出现一个字母的差错也会导致失效，因此本文对配置文件会具体说明，而目录均是按照我的博客搭建博文中说明的目录结构，可以根据自身目录结构进行转换。</p>
 <a id="more"></a>
 
 <h2 id="优化主题"><a href="#优化主题" class="headerlink" title="优化主题"></a>优化主题</h2><p>我的个人博客是<a href="https://linwhitehat.github.io/">Pikachu</a>，本文优化的效果可以访问博客进行观看。</p>
-<ol>
-<li>阅读全文设置</li>
-</ol>
-<p>由于初始博客并没有设置摘要的形式，因此博客首页会展示每篇博文的全文，显得十分冗长，为此设置<code>阅读全文</code>能简化博客首页，且让博文能以简短的摘要进行展示。</p>
+<h3 id="阅读全文设置"><a href="#阅读全文设置" class="headerlink" title="阅读全文设置"></a>阅读全文设置</h3><p>由于初始博客并没有设置摘要的形式，因此博客首页会展示每篇博文的全文，显得十分冗长，为此设置<code>阅读全文</code>能简化博客首页，且让博文能以简短的摘要进行展示。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="设置阅读全文 https://www.jianshu.com/p/78c218f9d1e7
+">[1]</span></a></sup></p>
 <p>设置方法采用的是在博文中选择适当位置进行内容截断，填写以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
 
 <p>这样首页便只会展示在截断位置前的内容。</p>
-<ol start="2">
-<li><code>分类板块</code>二级目录显示</li>
-</ol>
-<p>在类别模块，往往只显示一种类别，但有时候博客之间归属一大类却各有差异，因此设计二级分类目录，使得类别简洁的同时又能将具体博文区别。因为Hexo原生支持父子分类，在博文撰写的<code>md</code>文件首部<code>categories</code>下原先的类别A下再写一个类别B，即可得到父子类的效果，A为父类，B为子类，示例如下：</p>
+<h3 id="分类板块二级目录显示"><a href="#分类板块二级目录显示" class="headerlink" title="分类板块二级目录显示"></a><code>分类板块</code>二级目录显示</h3><p>在类别模块，往往只显示一种类别，但有时候博客之间归属一大类却各有差异，因此设计二级分类目录，使得类别简洁的同时又能将具体博文区别。因为Hexo原生支持父子分类，在博文撰写的<code>md</code>文件首部<code>categories</code>下原先的类别A下再写一个类别B，即可得到父子类的效果，A为父类，B为子类，示例如下<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="分类二级目录 https://hexo.io/zh-cn/docs/front-matter.html
+">[2]</span></a></sup>：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- 技术</span><br><span class="line">- 博客搭建</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>评论系统使用<code>utteranc</code></li>
-</ol>
-<p>原先使用的是主题自带的<code>gitalk</code>作为博客评论系统，而更改为<code>utteranc</code>的原因有两个：<br>1）<code>gitalk</code>存在原始配置泄露及访问授权等<a href="https://github.com/gitalk/gitalk/issues/343" target="_blank" rel="noopener" title="https://github.com/gitalk/gitalk/issues/343">问题</a>，<code>utteranc</code>具备细粒度的权限控制，且接受隐私项目授权；<br>2）二者都是基于GitHub的issue系统进行评论，很好转换。</p>
-<p>转换评论系统首先将<code>gitalk</code>在<code>../next/_config.yml</code>中设置为<code>false</code>，将GitHub中授权的应用删除。安装<code>utteranc</code>步骤如下：<br>1）在GitHub APP中安装<code>utterances</code>，链接为<a href="https://github.com/apps/utterances" target="_blank" rel="noopener">https://github.com/apps/utterances</a>，安装后如图：<br><img src="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd723ae73cb3.webp" alt="utterance应用安装"><i class="img-caption">◎ utterance应用安装</i><br>2）安装插件，在hexo文件目录下打开<code>git bash</code>，安装如下：</p>
+<h3 id="评论系统使用utteranc"><a href="#评论系统使用utteranc" class="headerlink" title="评论系统使用utteranc"></a>评论系统使用<code>utteranc</code></h3><p>原先使用的是主题自带的<code>gitalk</code>作为博客评论系统，而更改为<code>utteranc</code>的原因有两个：<br>1）<code>gitalk</code>存在原始配置泄露及访问授权等<a href="https://github.com/gitalk/gitalk/issues/343" target="_blank" rel="noopener" title="https://github.com/gitalk/gitalk/issues/343">问题</a>，<code>utteranc</code>具备细粒度的权限控制，且接受隐私项目授权；<br>2）二者都是基于GitHub的issue系统进行评论，很好转换。</p>
+<p>转换评论系统首先将<code>gitalk</code>在<code>../next/_config.yml</code>中设置为<code>false</code>，将GitHub中授权的应用删除。安装<code>utteranc</code>步骤如下<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="评论系统 https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/
+">[3]</span></a></sup>：<br>1）在GitHub APP中安装<code>utterances</code>，链接为<a href="https://github.com/apps/utterances" target="_blank" rel="noopener">https://github.com/apps/utterances</a>，安装后如图：<br><img src="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd723ae73cb3.webp" alt="utterance应用安装"><i class="img-caption">◎ utterance应用安装</i><br>2）安装插件，在hexo文件目录下打开<code>git bash</code>，安装如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install theme-next&#x2F;hexo-next-utteranc</span><br></pre></td></tr></table></figure>
 <p>3）在<code>../next/layout/_third-party/comments/</code>中新建文件<code>utterances.swig</code>，写入以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% if theme.utteranc.enable %&#125;</span><br><span class="line">  &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;utteranc.es&#x2F;client.js&quot;</span><br><span class="line">    repo&#x3D;&quot;&#123;&#123; theme.utteranc.repo &#125;&#125;&quot;</span><br><span class="line">    issue-term&#x3D;&quot;&#123;&#123; theme.utteranc.issue_term &#125;&#125;&quot;</span><br><span class="line">    theme&#x3D;&quot;&#123;&#123; theme.utteranc.theme &#125;&#125;&quot;</span><br><span class="line">    crossorigin&#x3D;&quot;anonymous&quot;</span><br><span class="line">    async&gt;</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
@@ -34,34 +28,36 @@
 <p>5）在<code>../next/_config.yml</code>添加下面的配置内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Demo: https:&#x2F;&#x2F;utteranc.es&#x2F;  http:&#x2F;&#x2F;trumandu.github.io&#x2F;about&#x2F;</span><br><span class="line">utteranc:</span><br><span class="line">  enable: true</span><br><span class="line">  repo: linwhitehat&#x2F;linwhitehat.github.io</span><br><span class="line">  pathname: pathname</span><br><span class="line">  # theme: github-light,github-dark,github-dark-orange</span><br><span class="line">  theme: github-light</span><br><span class="line">  cdn: https:&#x2F;&#x2F;utteranc.es&#x2F;client.js</span><br><span class="line">  # If you want to modify priority, please config in **hexo**</span><br><span class="line">  #priority:</span><br></pre></td></tr></table></figure>
 <p>更新完博客配置后，便能看到之前使用gitalk留下的评论，同时也能发表新评论。</p>
-<ol start="4">
-<li><p>博文首字效果</p>
-</li>
-<li><p>图片设置</p>
-</li>
+<h3 id="博客文段效果"><a href="#博客文段效果" class="headerlink" title="博客文段效果"></a>博客文段效果</h3><p>1）首字下沉<br>2）段首缩进</p>
+<h3 id="图片设置"><a href="#图片设置" class="headerlink" title="图片设置"></a>图片设置</h3><ol>
+<li>图片放大查看的功能，这是默认功能，可以选择使用的插件<code>fancybox</code>或<code>mediumzoom</code>，我使用后者，在<code>../next/_config.yml</code>中搜索<code>mediumzoom</code>，将<code>false</code>改为<code>true</code>。</li>
+<li>图片标题说明，当前的配置情况下，即使使用下面展示的markdown语法中的图片说明也无法正常显示在博客中，其中<code>Optional title</code>是图片的title属性，若使用Next主题中的<code>fancybox</code>插件则自动会显示，其他的配置则需要更改Hexo渲染组件。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![Alt text](..&#x2F;img.jpg &quot;Optional title&quot;)</span><br></pre></td></tr></table></figure>
+修改渲染配置步骤如下：<br>1）在<code>../hexo/node_modules/marked/lib/marked.js</code>中进行下述修改，其中<code>-</code>表示删除<code>+</code>表示增加：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Renderer.prototype.image &#x3D; function(href, title, text) &#123;</span><br><span class="line">- href &#x3D; cleanUrl(this.options.sanitize, this.options.baseUrl, href);</span><br><span class="line">- if (href &#x3D;&#x3D;&#x3D; null) &#123;</span><br><span class="line">-   return text;</span><br><span class="line">-&#125;</span><br><span class="line">+ if (this.options.baseUrl &amp;&amp; !originIndependentUrl.test(href)) &#123;</span><br><span class="line">+   href &#x3D; resolveUrl(this.options.baseUrl, href);</span><br><span class="line">+ &#125;</span><br><span class="line">+ var out &#x3D; &#39;&lt;img src&#x3D;&quot;&#39; + href + &#39;&quot; alt&#x3D;&quot;&#39; + text + &#39;&quot;&#39;;</span><br><span class="line">  if (title) &#123;</span><br><span class="line">-   out +&#x3D; &#39; title&#x3D;&quot;&#39; + title + &#39;&quot;&#39;;</span><br><span class="line">+   out +&#x3D; &#39;&gt;&#39; + &#39;&lt;i class&#x3D;&quot;img-caption&quot;&gt;&#39; + &#39;◎ &#39; + title + &#39;&lt;&#x2F;i&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">  out +&#x3D; this.options.xhtml ? &#39;&#x2F;&gt;&#39; : &#39;&gt;&#39;;</span><br><span class="line">  return out;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+2）增加自定义CSS样式，在<code>../source/_data/styles.styl</code>中增加以下内容：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.img-caption &#123;</span><br><span class="line">    font-style: normal;</span><br><span class="line">    margin: 0 0 .7em;</span><br><span class="line">    font-size: 90%;</span><br><span class="line">    color: #555;</span><br><span class="line">    display: block;</span><br><span class="line">    text-align: center;</span><br><span class="line">    text-indent: 0;</span><br><span class="line">    font-family: STKaiti, serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>图片居中<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="图片居中设置 https://blog.singee.me/2017/12/07/mist-img-center/
+">[4]</span></a></sup></li>
 </ol>
-<p>1）图片放大查看的功能，这是默认功能，可以选择使用的插件<code>fancybox</code>或<code>mediumzoom</code>，我使用后者，在<code>../next/_config.yml</code>中搜索<code>mediumzoom</code>，将<code>false</code>改为<code>true</code>。<br>2）图片标题说明，当前的配置情况下，即使使用下面展示的markdown语法中的图片说明也无法正常显示在博客中，其中<code>Optional title</code>是图片的title属性，若使用Next主题中的<code>fancybox</code>插件则自动会显示，其他的配置则需要更改Hexo渲染组件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![Alt text](..&#x2F;img.jpg &quot;Optional title&quot;)</span><br></pre></td></tr></table></figure>
-<p>修改渲染配置步骤如下：<br>1）在<code>../hexo/node_modules/marked/lib/marked.js</code>中进行下述修改，其中<code>-</code>表示删除<code>+</code>表示增加：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Renderer.prototype.image &#x3D; function(href, title, text) &#123;</span><br><span class="line">- href &#x3D; cleanUrl(this.options.sanitize, this.options.baseUrl, href);</span><br><span class="line">- if (href &#x3D;&#x3D;&#x3D; null) &#123;</span><br><span class="line">-   return text;</span><br><span class="line">-&#125;</span><br><span class="line">+ if (this.options.baseUrl &amp;&amp; !originIndependentUrl.test(href)) &#123;</span><br><span class="line">+   href &#x3D; resolveUrl(this.options.baseUrl, href);</span><br><span class="line">+ &#125;</span><br><span class="line">+ var out &#x3D; &#39;&lt;img src&#x3D;&quot;&#39; + href + &#39;&quot; alt&#x3D;&quot;&#39; + text + &#39;&quot;&#39;;</span><br><span class="line">  if (title) &#123;</span><br><span class="line">-   out +&#x3D; &#39; title&#x3D;&quot;&#39; + title + &#39;&quot;&#39;;</span><br><span class="line">+   out +&#x3D; &#39;&gt;&#39; + &#39;&lt;i class&#x3D;&quot;img-caption&quot;&gt;&#39; + &#39;◎ &#39; + title + &#39;&lt;&#x2F;i&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">  out +&#x3D; this.options.xhtml ? &#39;&#x2F;&gt;&#39; : &#39;&gt;&#39;;</span><br><span class="line">  return out;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>2）增加自定义CSS样式，在<code>../source/_data/styles.styl</code>中增加以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.img-caption &#123;</span><br><span class="line">    font-style: normal;</span><br><span class="line">    margin: 0 0 .7em;</span><br><span class="line">    font-size: 90%;</span><br><span class="line">    color: #555;</span><br><span class="line">    display: block;</span><br><span class="line">    text-align: center;</span><br><span class="line">    text-indent: 0;</span><br><span class="line">    font-family: STKaiti, serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>../next/source/css/_schemes/Mist/_posts-expanded.styl</code>中找到<code>.posts-expand</code>中的下列内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.post-body img &#123;</span><br><span class="line">    margin-left: 0;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>将其修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.post-body img &#123;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><p>脚注也可以叫注脚，Hexo自带的默认markdown编辑器渲染效果不支持脚注的显示，因此安装插件进行渲染支持，我使用的是<a href="https://github.com/kchen0x/hexo-reference" target="_blank" rel="noopener" title="https://github.com/kchen0x/hexo-reference">hexo-reference</a>，整体效果更可观，安装如下<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="插入脚注 https://guanqr.com/study/blog/hexo-theme-next-customization/#%E6%8F%92%E5%85%A5%E8%84%9A%E6%B3%A8
+">[5]</span></a></sup><sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="注脚选择 https://benzblog.site/2019-07-12-HexoTricks/
+">[6]</span></a></sup>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-reference --save</span><br></pre></td></tr></table></figure>
+<p>在博客撰写的md文件中使用如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">博客脚注\[^1\]。</span><br><span class="line">\[^1\]: 我的博客。</span><br></pre></td></tr></table></figure>
 
-<ol start="6">
-<li>脚注</li>
-<li>修改篇尾的</li>
-<li>配置修改后更新</li>
-</ol>
-<p>输入以下命令完成每次更新：</p>
+<h3 id="修改篇尾的标签符号"><a href="#修改篇尾的标签符号" class="headerlink" title="修改篇尾的标签符号"></a>修改篇尾的标签符号</h3><p>默认的标签符号是<code>#</code>，可以使用自带的标签图案，修改方式即在<code>../next/_config.yml</code>中将<code>tag_icon</code>更改为<code>true</code>。<br><img src="https://i.imgur.com/LVHYdOp.png" alt="old_tag"><i class="img-caption">◎ old_tag</i><br><img src="https://i.imgur.com/KVFYpSF.png" alt="new_tag"><i class="img-caption">◎ new_tag</i></p>
+<h3 id="修改分割线"><a href="#修改分割线" class="headerlink" title="修改分割线"></a>修改分割线</h3><p>原先的默认分割线是虚线，将其修改为实线，在<code>../next/source/css/_common/scaffolding/base.styl</code>中将下属配置删除<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="分割线样式修改 https://blog.bill.moe/hexo-theme-next-config-optimization/">[7]</span></a></sup>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background-image: repeating-linear-gradient(-45deg, white, white 4px, transparent 4px, transparent 8px);</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置修改后更新"><a href="#配置修改后更新" class="headerlink" title="配置修改后更新"></a>配置修改后更新</h3><p>输入以下命令完成每次更新：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://www.jianshu.com/p/78c218f9d1e7" target="_blank" rel="noopener">设置阅读全文</a></li>
-<li><a href="https://hexo.io/zh-cn/docs/front-matter.html" target="_blank" rel="noopener">分类二级目录</a></li>
-<li><a href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/" target="_blank" rel="noopener">评论系统</a></li>
-</ol>
-]]></content>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>这篇博客基于hexo和next初始配置完成的情况对博客进行主题功能和外观的优化，撰写初衷是将自身搭建博客进行记录，因为Hexo主题更新频繁，不同版本之间的配置处理并不完全一致，根据已有的参考需要进行实际优化处理，同时也对Hexo结构了解更深刻，希望将来能更多的自定义实现渲染效果的设计，搭建更自主化的博客。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">设置阅读全文 https://www.jianshu.com/p/78c218f9d1e7<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">分类二级目录 https://hexo.io/zh-cn/docs/front-matter.html<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">评论系统 https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">图片居中设置 https://blog.singee.me/2017/12/07/mist-img-center/<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">插入脚注 https://guanqr.com/study/blog/hexo-theme-next-customization/#%E6%8F%92%E5%85%A5%E8%84%9A%E6%B3%A8<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">注脚选择 https://benzblog.site/2019-07-12-HexoTricks/<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">分割线样式修改 https://blog.bill.moe/hexo-theme-next-config-optimization/<a href="#fnref:7" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>技术</category>
         <category>博客搭建</category>
@@ -74,7 +70,7 @@
   <entry>
     <title>逆向分析APK（一）</title>
     <url>/%E9%80%86%E5%90%91%E5%88%86%E6%9E%90APK.html</url>
-    <content><![CDATA[<p>最近开始做一些Android APP的分析，由于之前没有移动端逆向的基础，所以将自学和摸索的过程做下记录，但是并不是完整的逆向分析技术博客，只是针对具体的APK逆向分析中的技术记录。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近开始做一些Android APP的分析，由于之前没有移动端逆向的基础，所以将自学和摸索的过程做下记录，但是并不是完整的逆向分析技术博客，只是针对具体的APK逆向分析中的技术记录。</p>
 <a id="more"></a>
 
 <h2 id="逆向工具和环境"><a href="#逆向工具和环境" class="headerlink" title="逆向工具和环境"></a>逆向工具和环境</h2><h3 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h3><p>Android Studio（AS）是一款谷歌推出的移动端应用开发的IDE，而在安装APP逆向分析中主要将其作为源码分析和调试的工具，同时使用AS自带的模拟器也比较方便。</p>
@@ -91,7 +87,7 @@
   <entry>
     <title>Windows查看端口占用</title>
     <url>/Windows%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8.html</url>
-    <content><![CDATA[<p>在windows下需要查看端口占用情况，同时排查哪些应用正在使用当前端口。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在windows下需要查看端口占用情况，同时排查哪些应用正在使用当前端口。</p>
 <a id="more"></a>
 
 <h3 id="1、打开命令行（管理员身份）"><a href="#1、打开命令行（管理员身份）" class="headerlink" title="1、打开命令行（管理员身份）"></a>1、打开命令行（管理员身份）</h3><p>1） 在开始菜单搜索<code>cmd</code>，右键点击<code>命令行提示窗口</code>以管理员身份运行；</p>
@@ -121,10 +117,10 @@
   <entry>
     <title>搭建个人博客(hexo+next+github）</title>
     <url>/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html</url>
-    <content><![CDATA[<p>在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客<a href="https://linwhitehat.github.io/">Pikachu</a>搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客<a href="https://linwhitehat.github.io/">Pikachu</a>搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。</p>
 <a id="more"></a>
 
-<h2 id="最初的诞生"><a href="#最初的诞生" class="headerlink" title="最初的诞生"></a>最初的诞生</h2><p>我采用的搭建博客的方式是使用 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 的方式，这个应该是我摸索之后认为的对新手最友好也最优质的方式，只需要投入时间学习和运营，就能拥有美观的个人博客。</p>
+<h2 id="最初的诞生"><a href="#最初的诞生" class="headerlink" title="最初的诞生"></a>最初的诞生</h2><p>我采用的搭建博客的方式是使用 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 的方式，这个应该是我摸索之后认为的对新手最友好也最优质的方式，只需要投入时间学习和运营，就能拥有美观的个人博客。以下的1 - 3小点是博客的雏形构建<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="博客雏形安装 https://www.jianshu.com/p/956c44c87fb1">[1]</span></a></sup>。</p>
 <ol>
 <li>注册Github账号</li>
 </ol>
@@ -204,10 +200,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-cli -g</span><br><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
 <p>博客相应的文件目录需要手动删除。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://www.jianshu.com/p/956c44c87fb1" target="_blank" rel="noopener">博客雏形安装</a></li>
-</ol>
-]]></content>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">博客雏形安装 https://www.jianshu.com/p/956c44c87fb1<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>技术</category>
         <category>博客搭建</category>
@@ -221,7 +214,7 @@
   <entry>
     <title>LaTeX-Windows10安装教程</title>
     <url>/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html</url>
-    <content><![CDATA[<p>作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上。</p>
 <a id="more"></a>
 
 <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
