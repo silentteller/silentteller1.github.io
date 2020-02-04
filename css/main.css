@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #54a88a;
+  background: #3b6b65;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2597,4 +2597,14 @@ hr {
 }
 .icon-rooster:before {
   content: '\e82f';
+}
+.img-caption {
+  font-style: normal;
+  margin: 0 0 0.7em;
+  font-size: 90%;
+  color: #555;
+  display: block;
+  text-align: center;
+  text-indent: 0;
+  font-family: STKaiti, serif;
 }
