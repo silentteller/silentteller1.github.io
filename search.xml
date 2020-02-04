@@ -16,7 +16,14 @@
 
 <p>这样首页便只会展示在截断位置前的内容。</p>
 <ol start="2">
-<li>分类二级目录显示</li>
+<li><p><code>分类板块</code>二级目录显示</p>
+</li>
+<li><p>评论系统使用<code>utteranc</code></p>
+</li>
+<li><p>博文首字效果</p>
+</li>
+<li><p>图片放大阅读</p>
+</li>
 </ol>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://www.jianshu.com/p/78c218f9d1e7" target="_blank" rel="noopener">设置阅读全文</a></li>
