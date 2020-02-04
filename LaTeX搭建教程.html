@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-test-1.jpg">
 <meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-test-2.jpg">
 <meta property="article:published_time" content="2019-10-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-04T08:46:07.746Z">
+<meta property="article:modified_time" content="2020-02-04T17:22:52.838Z">
 <meta property="article:author" content="L1n">
 <meta property="article:tag" content="Latex">
 <meta name="twitter:card" content="summary">
@@ -246,7 +246,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-04 16:46:07" itemprop="dateModified" datetime="2020-02-04T16:46:07+08:00">2020-02-04</time>
+                <time title="修改时间：2020-02-05 01:22:52" itemprop="dateModified" datetime="2020-02-05T01:22:52+08:00">2020-02-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,14 +294,6 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上。</p>
 <a id="more"></a>
 
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
-<li>调研选择</li>
-<li>下载</li>
-<li>安装</li>
-<li>配置</li>
-<li>第一篇tex文档</li>
-<li>更多LaTeX学习资料</li>
-</ul>
 <h2 id="调研选择"><a href="#调研选择" class="headerlink" title="调研选择"></a>调研选择</h2><p>其实这部分只是自己做一点记录，急需安装教程的请跳过，请看第2节。</p>
 <p>经过多番Google、csdn以及知乎的查阅，大概了解了latex的编译环境和编辑环境，主流的有ctex、texlive、texstudio+winedt等等，我的选择变化大致如下：</p>
 <ol>
@@ -321,7 +313,7 @@
 <li>texstudio，我选择的是zip压缩文件形式，<a href="https://github.com/texstudio-org/texstudio/releases/download/2.12.16/texstudio-2.12.16-win-portable-qt5.zip" target="_blank" rel="noopener">下载</a>；</li>
 </ol>
 <p>当然也可以直接下载我网盘分享的镜像和安装包，可以使用官方提供的md5值进行比对验证文件没有被篡改。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="TexLive-安装"><a href="#TexLive-安装" class="headerlink" title="TexLive 安装"></a>TexLive 安装</h4><p>下载好iso文件之后，由于我是win10系统，可以直接加载iso镜像文件，因此双击打开即可，如果是win7及以前的版本需要先解压iso文件，双击打开install-tl-advanced.bat文件，会出现以下界面：</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="TexLive-安装"><a href="#TexLive-安装" class="headerlink" title="TexLive 安装"></a>TexLive 安装</h3><p>下载好iso文件之后，由于我是win10系统，可以直接加载iso镜像文件，因此双击打开即可，如果是win7及以前的版本需要先解压iso文件，双击打开install-tl-advanced.bat文件，会出现以下界面：</p>
 <p><img src="/images/post-texlive-install-1.jpg" alt="安装启动界面"></p>
 <p>点击<em>修改</em>更换需要安装的文件路径，路径建议不要带有中文和特殊字符；<br>点击<em>Advanced</em>修改安装选项，但默认是所有都选上，所以可以不用修改（因为涉及调用的宏包以及scheme选择，如果不了解还是默认，避免后续麻烦）；<br>点击<em>安装</em>，然后就是漫长的安装过程，安装期间可以做自己的事情，安装完成后显示如下：</p>
 <p><img src="/images/post-texlive-install-2.jpg" alt="安装完成界面"></p>
@@ -335,10 +327,10 @@
 <p><img src="/images/post-texlive-test-1.jpg" alt="测试正常界面"></p>
 <p>如果显示错误如下，应该是系统环境变量的问题，进入系统环境变量（系统属性-&gt;高级系统设置-&gt;环境变量），将<em>Path</em>环境变量新增texlive进去，即将安装好的texlive文件目录下的bin文件夹所在的路径作为环境变量。</p>
 <p><img src="/images/post-texlive-test-2.jpg" alt="测试错误界面"></p>
-<h4 id="TexStudio-安装"><a href="#TexStudio-安装" class="headerlink" title="TexStudio 安装"></a>TexStudio 安装</h4><p>下载好zip压缩文件之后，直接解压就可以使用，十分方便！</p>
+<h3 id="TexStudio-安装"><a href="#TexStudio-安装" class="headerlink" title="TexStudio 安装"></a>TexStudio 安装</h3><p>下载好zip压缩文件之后，直接解压就可以使用，十分方便！</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>主要是texstudio需要进行配置，更适合国内人士使用。</p>
-<h4 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h4><p>打开texstudio之后，在主界面中显示的是英文，点击菜单栏的<em>Options</em>，点击<em>Configure TeXstudio</em>，在<em>General</em>选项下将<em>Language</em>选择为<em>zh_CN</em>，点击确定；</p>
-<h4 id="编译环境设置"><a href="#编译环境设置" class="headerlink" title="编译环境设置"></a>编译环境设置</h4><p>在语言设置一样的窗口，此时显示语言是中文，点击<em>构建</em>-&gt;<em>默认编译器<em>设置为”XeLaTeX”，支持中文LaTeX文档；<br>将</em>构建</em>-&gt;<em>默认文献工具<em>设置为”Biber”；<br>在</em>命令</em>-&gt;<em>XeLaTeX</em>设置编译参数，使用 -shell-escape 参数以支持“minted”代码排版宏包；</p>
+<h3 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h3><p>打开texstudio之后，在主界面中显示的是英文，点击菜单栏的<em>Options</em>，点击<em>Configure TeXstudio</em>，在<em>General</em>选项下将<em>Language</em>选择为<em>zh_CN</em>，点击确定；</p>
+<h3 id="编译环境设置"><a href="#编译环境设置" class="headerlink" title="编译环境设置"></a>编译环境设置</h3><p>在语言设置一样的窗口，此时显示语言是中文，点击<em>构建</em>-&gt;<em>默认编译器<em>设置为”XeLaTeX”，支持中文LaTeX文档；<br>将</em>构建</em>-&gt;<em>默认文献工具<em>设置为”Biber”；<br>在</em>命令</em>-&gt;<em>XeLaTeX</em>设置编译参数，使用 -shell-escape 参数以支持“minted”代码排版宏包；</p>
 <p>点击<em>构建</em>-&gt;<em>默认编译器<em>设置为”Latexmk”实现一次性编译；<br>将</em>命令</em>-&gt;<em>Latexmk<em>的 -pdf 参数修改为 -xelatex 以支持中文；<br>在</em>命令</em>-&gt;<em>Latexmk</em>设置编译参数，使用 -shell-escape 参数以支持“minted”代码排版宏包；<br>点击确定</p>
 <p>点击菜单栏<em>帮助</em>-&gt;<em>检查Latex安装信息</em>，若正确输出系统报告，说明texlive正常工作。</p>
 <h2 id="第一篇tex文档"><a href="#第一篇tex文档" class="headerlink" title="第一篇tex文档"></a>第一篇tex文档</h2><p>参照这篇博客，<a href="https://blog.csdn.net/yeler082/article/details/80665186" target="_blank" rel="noopener">Texlive+TeXstudio 入门安装使用</a>，照着输入，然后点击两个绿色箭头重叠的按钮，可以看到实时生成的文档。</p>
@@ -452,7 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调研选择"><span class="nav-number"></span> <span class="nav-text">调研选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number"></span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number"></span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TexLive-安装"><span class="nav-number">0.1.</span> <span class="nav-text">TexLive 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TexStudio-安装"><span class="nav-number">0.2.</span> <span class="nav-text">TexStudio 安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number"></span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语言设置"><span class="nav-number">0.1.</span> <span class="nav-text">语言设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译环境设置"><span class="nav-number">0.2.</span> <span class="nav-text">编译环境设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一篇tex文档"><span class="nav-number"></span> <span class="nav-text">第一篇tex文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多LaTeX学习资料"><span class="nav-number"></span> <span class="nav-text">更多LaTeX学习资料</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#调研选择"><span class="nav-number">1.</span> <span class="nav-text">调研选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TexLive-安装"><span class="nav-number">3.1.</span> <span class="nav-text">TexLive 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TexStudio-安装"><span class="nav-number">3.2.</span> <span class="nav-text">TexStudio 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言设置"><span class="nav-number">4.1.</span> <span class="nav-text">语言设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译环境设置"><span class="nav-number">4.2.</span> <span class="nav-text">编译环境设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一篇tex文档"><span class="nav-number">5.</span> <span class="nav-text">第一篇tex文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多LaTeX学习资料"><span class="nav-number">6.</span> <span class="nav-text">更多LaTeX学习资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

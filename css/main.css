@@ -224,7 +224,6 @@ video {
 }
 hr {
   background-color: #ddd;
-  background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
   border: 0;
   height: 3px;
   margin: 40px 0;
@@ -1191,7 +1190,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a1af96;
+  background: #ff25e2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2493,7 +2492,7 @@ hr {
   background: #222;
 }
 .posts-expand .post-body img {
-  margin-left: 0;
+  margin: 0 auto;
 }
 .posts-expand .post-tags {
   text-align: left;
@@ -2607,8 +2606,4 @@ hr {
   text-align: center;
   text-indent: 0;
   font-family: STKaiti, serif;
-}
-.text:first-letter {
-  font-size: 72px;
-  float: left; /*2. 加上这行，下沉*/
 }
