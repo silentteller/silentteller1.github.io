@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>博客优化(Hexo+Next)</title>
+    <title>博客优化(Hexo博客Next主题自定义设计)</title>
     <url>/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>博客搭建完成后，最初的博客雏形一般都比较朴素，功能也有限，所以可以通过优化主题来进行美化博客外观和拓展博客功能。本篇文章主要以可正常访问的Hexo.Mist原型博客为基础，根据自身需求加以优化，而最新版（V7.7）中其实包含很多美化设置，但是默认是关闭状态，同时个性化配置需要修改配置文件等，即使出现一个字母的差错也会导致失效，因此本文对配置文件会具体说明，而目录均是按照我的博客搭建博文中说明的目录结构，可以根据自身目录结构进行转换。</p>
 <a id="more"></a>
