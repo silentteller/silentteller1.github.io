@@ -65,7 +65,7 @@ https://guanqr.com/study/blog/hexo-theme-next-customization/
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">设置阅读全文 https://www.jianshu.com/p/78c218f9d1e7<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">分类二级目录 https://hexo.io/zh-cn/docs/front-matter.html<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">评论系统 https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">图片居中设置 https://blog.singee.me/2017/12/07/mist-img-center/<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">插入脚注
 https://guanqr.com/study/blog/hexo-theme-next-customization/<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">注脚选择 https://benzblog.site/2019-07-12-HexoTricks/<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">分割线样式修改 https://blog.bill.moe/hexo-theme-next-config-optimization/<a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">页脚显示博客运行时间 http://eternalzttz.com/hexo-next.html<a href="#fnref:8" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
-        <category>技术</category>
+        <category>技术分享</category>
         <category>博客搭建</category>
       </categories>
       <tags>
@@ -94,8 +94,8 @@ https://guanqr.com/study/blog/hexo-theme-next-customization/<a href="#fnref:5" r
 <h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>本文是用于Windows下端口被占用时的排查方法，由于在windows环境下较少使用命令行，对少用的命令不熟悉，所以记录下来。</p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Windows下如何查看某个端口被谁占用 https://www.runoob.com/w3cnote/windows-finds-port-usage.html<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
-        <category>Handbook</category>
-        <category>实用技巧</category>
+        <category>HandBook</category>
+        <category>Windows</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -177,13 +177,14 @@ https://guanqr.com/study/blog/hexo-theme-next-customization/<a href="#fnref:5" r
 <p>博客相应的文件目录需要手动删除。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">博客雏形安装 https://www.jianshu.com/p/956c44c87fb1<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
-        <category>技术</category>
+        <category>技术分享</category>
         <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>GitHub</tag>
+        <tag>Hexo Blog</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -238,7 +239,7 @@ https://guanqr.com/study/blog/hexo-theme-next-customization/<a href="#fnref:5" r
 </ol>
 ]]></content>
       <categories>
-        <category>写作</category>
+        <category>HandBook</category>
         <category>latex</category>
       </categories>
       <tags>
