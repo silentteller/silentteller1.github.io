@@ -6,7 +6,7 @@
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>博客搭建完成后，最初的博客雏形一般都比较朴素，功能也有限，所以可以通过优化主题来进行美化博客外观和拓展博客功能。本篇文章主要以可正常访问的Hexo.Mist原型博客为基础，根据自身需求加以优化，而最新版（V7.7）中其实包含很多美化设置，但是默认是关闭状态，同时个性化配置需要修改配置文件等，即使出现一个字母的差错也会导致失效，因此本文对配置文件会具体说明，而目录均是按照我的博客搭建博文中说明的目录结构，可以根据自身目录结构进行转换，博文中展示的图片可能来自参考文章，若参考文章内容与实际存在差异会附上实际图片。</p>
 <a id="more"></a>
 
-<h2 id="优化主题"><a href="#优化主题" class="headerlink" title="优化主题"></a>优化主题</h2><p>我的个人博客是<a href="https://linwhitehat.github.io/">荇水荷风</a>，本文优化的效果可以访问博客进行观看。</p>
+<h2 id="优化主题"><a href="#优化主题" class="headerlink" title="优化主题"></a>优化主题</h2><p>我的个人博客是<a href="https://linwhitehat.github.io/">林深时见璐</a>，本文优化的效果可以访问博客进行观看。</p>
 <h3 id="阅读全文设置"><a href="#阅读全文设置" class="headerlink" title="阅读全文设置"></a>阅读全文设置</h3><p>由于初始博客并没有设置摘要的形式，因此博客首页会展示每篇博文的全文，显得十分冗长，为此设置<code>阅读全文</code>能简化博客首页，且让博文能以简短的摘要进行展示。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[设置阅读全文](https://www.jianshu.com/p/78c218f9d1e7)
 ">[1]</span></a></sup></p>
 <p>设置方法采用的是在博文中选择适当位置进行内容截断，填写以下内容：</p>
@@ -91,8 +91,8 @@
         <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -127,7 +127,7 @@
   <entry>
     <title>搭建个人博客(Hexo+Next+Github）</title>
     <url>/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客<a href="https://linwhitehat.github.io/">荇水荷风</a>搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客<a href="https://linwhitehat.github.io/">林深时见璐</a>搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。</p>
 <a id="more"></a>
 
 <h2 id="最初的诞生"><a href="#最初的诞生" class="headerlink" title="最初的诞生"></a>最初的诞生</h2><p>我采用的搭建博客的方式是使用 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 的方式，这个应该是我摸索之后认为的对新手最友好也最优质的方式，只需要投入时间学习和运营，就能拥有美观的个人博客。以下的1 - 3小点是博客的雏形构建<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[博客雏形安装](https://www.jianshu.com/p/956c44c87fb1)">[1]</span></a></sup>。</p>
@@ -203,8 +203,8 @@
         <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>Hexo Blog</tag>
         <tag>Next</tag>
+        <tag>Hexo Blog</tag>
         <tag>GitHub</tag>
         <tag>博客</tag>
       </tags>

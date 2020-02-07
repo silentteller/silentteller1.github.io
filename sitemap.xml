@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://linwhitehat.github.io/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96.html</loc>
+    <loc>https://linwhitehat.github.io/about/index.html</loc>
     
-    <lastmod>2020-02-07T10:49:58.410Z</lastmod>
+    <lastmod>2020-02-07T11:54:34.129Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://linwhitehat.github.io/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html</loc>
     
-    <lastmod>2020-02-07T10:49:25.218Z</lastmod>
+    <lastmod>2020-02-07T11:53:20.947Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linwhitehat.github.io/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96.html</loc>
+    
+    <lastmod>2020-02-07T11:53:12.344Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://linwhitehat.github.io/manifest.json</loc>
     
     <lastmod>2020-02-07T09:56:24.799Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linwhitehat.github.io/about/index.html</loc>
-    
-    <lastmod>2020-02-06T17:17:12.090Z</lastmod>
     
   </url>
   
