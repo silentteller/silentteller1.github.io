@@ -64,7 +64,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2178672-b37268df7a7852ca.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2178672-0c8750f5a18dbe03.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="article:published_time" content="2019-10-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-06T17:20:15.291Z">
+<meta property="article:modified_time" content="2020-02-07T10:29:28.558Z">
 <meta property="article:author" content="L1n">
 <meta property="article:tag" content="Next">
 <meta property="article:tag" content="Hexo Blog">
@@ -257,7 +257,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-07 01:20:15" itemprop="dateModified" datetime="2020-02-07T01:20:15+08:00">2020-02-07</time>
+                <time title="修改时间：2020-02-07 18:29:28" itemprop="dateModified" datetime="2020-02-07T18:29:28+08:00">2020-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -290,14 +290,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -312,7 +312,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在经过多个教程摸索和尝试后，发现手把手有时候挺坑人的，毕竟经验还是要自己攒，不然没踩的坑迟早要踩到，最终我的个人博客<a href="https://linwhitehat.github.io/">Pikachu</a>搭建完成，这篇教程会从本地博客建立到实现美观的网络博客进行记录分享，这篇博客也就会随着本博客的每一次升级完善而补充，希望能给想自建博客的朋友们提供帮助。</p>
 <a id="more"></a>
 
-<h2 id="最初的诞生"><a href="#最初的诞生" class="headerlink" title="最初的诞生"></a>最初的诞生</h2><p>我采用的搭建博客的方式是使用 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 的方式，这个应该是我摸索之后认为的对新手最友好也最优质的方式，只需要投入时间学习和运营，就能拥有美观的个人博客。以下的1 - 3小点是博客的雏形构建<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="博客雏形安装 https://www.jianshu.com/p/956c44c87fb1">[1]</span></a></sup>。</p>
+<h2 id="最初的诞生"><a href="#最初的诞生" class="headerlink" title="最初的诞生"></a>最初的诞生</h2><p>我采用的搭建博客的方式是使用 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 的方式，这个应该是我摸索之后认为的对新手最友好也最优质的方式，只需要投入时间学习和运营，就能拥有美观的个人博客。以下的1 - 3小点是博客的雏形构建<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[博客雏形安装](https://www.jianshu.com/p/956c44c87fb1)">[1]</span></a></sup>。</p>
 <h3 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h3><p>要使用 GitHub Pages，首先你要注册一个<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>账号。</p>
 <p><img src="/images/blog-1.png" alt="GitHub注册页"><i class="img-caption">◎ GitHub注册页</i></p>
 <h3 id="安装必备软件"><a href="#安装必备软件" class="headerlink" title="安装必备软件"></a>安装必备软件</h3><p>1) 安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a>客户端</p>
@@ -324,21 +324,21 @@
 <p>1) 登录GitHub后新建项目（new repository），项目名由两部分组成即GitHub账号名和固定后缀<code>.github.io</code>，比如我的项目就是<code>linwhitehat.github.io</code>，填写完点击创建项目（create repository）。</p>
 <p>2) 配置GitHub SSH密钥，本地打开git bash，输入<code>ssh-keygen -t rsa -C &quot;your&#39;s emaill address&quot;</code>，其中your’s email address换成GitHub账号的邮箱地址，第一次点击回车键（Enter）会显示存储位置，第二次点击回车键会显示输入密钥，按照要求输入密钥两次(输入过程是看不到密钥的)，之后在第一次显示的存储位置打开文件id_rsa.pub，复制文件内所有内容，在GitHub中点击头像可看的setting选项，在setting选项中可看到SSH and GPG keys选项，点击new SSH，然后输入title（方便密钥管理的名字），将刚才复制的内容粘贴到key中。</p>
 <p>3）创建本地仓库，在本地选择不包含中文的文件路径，新建一个文件夹，进入文件夹并点击右键选择git bash，输入以下命令进行设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git config --global user.name &quot;Your&#39;s name&quot;</span><br><span class="line">git config --global user.email &quot;Your&#39;s email address&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git config --global user.name <span class="string">"Your's name"</span></span><br><span class="line">git config --global user.email <span class="string">"Your's email address"</span></span><br></pre></td></tr></table></figure>
 <p>其中<code>Your&#39;s name</code>和<code>Your&#39;s email address</code>替换为GitHub账户名和对应邮箱地址。</p>
 <p>4) 安装Hexo，按照之前方式进入git bash终端，输入<code>node</code>检测Node.js是否安装成功，若出现<code>&gt;</code>则表示正常，退出node模式，输入以下命令安装Hexo：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
 <p>看到输出版本号等信息表示安装Hexo成功，在当前新建的文件夹下新建一个hexo文件夹，在hexo文件夹中进入git bash，输入以下命令配置hexo，完成之后，在浏览器输入<code>http://localhost:4000</code>，正常则可看到初始化的博客，到此便完成本地博客的建立。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>5）配置Hexo到GitHub，在hexo文件夹下存在一个配置文件<code>_config.yml</code>，打开后可看到文件最后部分为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type:</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"> <span class="attr">type:</span></span><br></pre></td></tr></table></figure>
 <p>将其修改为以下内容，其中<code>yourname</code>为GitHub账号名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line"> type: git</span><br><span class="line"> repository: http:&#x2F;&#x2F;github.com&#x2F;yourname&#x2F;yourname.github.io.git</span><br><span class="line"> branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span>  </span><br><span class="line"> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"> <span class="attr">repository:</span> <span class="string">http://github.com/yourname/yourname.github.io.git</span></span><br><span class="line"> <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <p>保存后，在当前文件夹打开git bash并输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>若出现错误显示<code>ERROR Deployer not found: git</code>，则输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>若弹出填写GitHub账号用户名和密码则正常填写，完成之后在浏览器输入<code>https://yourname.github.io</code>，yourname替换为GitHub账户名，即可通过互联网访问博客。</p>
 <p>6）如果不想自己新建，可以使用现有的他人博客项目进行改建，见<a href="#Section2">第2小节</a>。</p>
 <ol start="2">
@@ -370,16 +370,16 @@
 <p>然后编辑<code>_config.yml</code>的内容</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2178672-0c8750f5a18dbe03.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置文件内容修改"><i class="img-caption">◎ 配置文件内容修改</i></p>
 <p>接下来我们来详细说说以下配置文件的内容：</p>
-<h3 id="基础设置说明"><a href="#基础设置说明" class="headerlink" title="基础设置说明"></a>基础设置说明</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Site settings</span><br><span class="line">title: Your Blog    				  	#你博客的标题</span><br><span class="line">SEOTitle: 你的博客 | Your Blog    	 #显示在浏览器上搜索的时候显示的标题</span><br><span class="line">header-img: img&#x2F;post-bg-rwd.jpg  	#显示在首页的背景图片</span><br><span class="line">email: You@gmail.com	</span><br><span class="line">description: &quot;You Blog&quot;  			 #网站介绍</span><br><span class="line">keyword: &quot;BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone&quot; #关键词</span><br><span class="line">url: &quot;https:&#x2F;&#x2F;qiubaiying.github.io&quot;          # 这个就是填写你的博客地址</span><br><span class="line">baseurl: &quot;&quot;      # 这个我们不用填写</span><br></pre></td></tr></table></figure>
+<h3 id="基础设置说明"><a href="#基础设置说明" class="headerlink" title="基础设置说明"></a>基础设置说明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site settings</span></span><br><span class="line">title: Your Blog    				    <span class="comment">#你博客的标题</span></span><br><span class="line">SEOTitle: 你的博客 | Your Blog    	    <span class="comment">#显示在浏览器上搜索的时候显示的标题</span></span><br><span class="line">header-img: img/post-bg-rwd.jpg  	    <span class="comment">#显示在首页的背景图片</span></span><br><span class="line">email: You@gmail.com	</span><br><span class="line">description: <span class="string">"You Blog"</span>  			    <span class="comment">#网站介绍</span></span><br><span class="line">keyword: <span class="string">"L1n, L1n Blog"</span> <span class="comment">#关键词</span></span><br><span class="line">url: <span class="string">"https://linwhitehat.github.io"</span>  <span class="comment"># 这个就是填写你的博客地址</span></span><br><span class="line">baseurl: <span class="string">""</span>                           <span class="comment"># 这个我们不用填写</span></span><br></pre></td></tr></table></figure>
 
 <p>至此，一个初具形态的博客便生成了。</p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
 <li>本文中新建仓库建立博客的方式，在本地建立仓库后，又再新建一个hexo文件，且将hexo配置托管到GitHub之后，GitHub项目便被hexo文件夹下的<code>.deploy_git</code>覆盖，之后修改博客维护项目只需要在hexo文件夹下的git bash进行hexo处理即可。</li>
 <li>Hexo卸载方式，在git bash执行以下命令：</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-cli -g</span><br><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-cli -g</span><br><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
 <p>博客相应的文件目录需要手动删除。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">博客雏形安装 https://www.jianshu.com/p/956c44c87fb1<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.jianshu.com/p/956c44c87fb1" target="_blank" rel="noopener">博客雏形安装</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
     </div>
 
     
@@ -569,13 +569,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">16k</span>
+    <span title="站点总字数">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
 </div>
   <div class="powered-by">Power by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
