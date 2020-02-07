@@ -120,7 +120,6 @@
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
         <tag>端口查看</tag>
       </tags>
   </entry>
@@ -260,10 +259,10 @@
 <h2 id="更多LaTeX学习资料"><a href="#更多LaTeX学习资料" class="headerlink" title="更多LaTeX学习资料"></a>更多LaTeX学习资料</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.cnblogs.com/joyeecheung/p/3596255.html" target="_blank" rel="noopener">TeX Live &amp; TeXstudio 安装手记</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://www.ctex.org/OnlineDocuments" target="_blank" rel="noopener">第一篇tex文档编写</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>HandBook</category>
-        <category>latex</category>
+        <category>Latex</category>
       </categories>
       <tags>
-        <tag>Latex</tag>
+        <tag>Latex安装</tag>
       </tags>
   </entry>
 </search>
