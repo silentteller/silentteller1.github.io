@@ -116,7 +116,7 @@
 <h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>本文是用于Windows下端口被占用时的排查方法，由于在windows环境下较少使用命令行，对少用的命令不熟悉，所以记录下来。</p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html" target="_blank" rel="noopener">Windows下如何查看某个端口被谁占用</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
-        <category>HandBook</category>
+        <category>Handbook</category>
         <category>Windows</category>
       </categories>
       <tags>
@@ -258,7 +258,7 @@
 <h2 id="第一篇tex文档"><a href="#第一篇tex文档" class="headerlink" title="第一篇tex文档"></a>第一篇tex文档</h2><p>参照这篇博客，<a href="https://blog.csdn.net/yeler082/article/details/80665186" target="_blank" rel="noopener">Texlive+TeXstudio 入门安装使用</a>，照着输入，然后点击两个绿色箭头重叠的按钮，可以看到实时生成的文档。</p>
 <h2 id="更多LaTeX学习资料"><a href="#更多LaTeX学习资料" class="headerlink" title="更多LaTeX学习资料"></a>更多LaTeX学习资料</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.cnblogs.com/joyeecheung/p/3596255.html" target="_blank" rel="noopener">TeX Live &amp; TeXstudio 安装手记</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://www.ctex.org/OnlineDocuments" target="_blank" rel="noopener">第一篇tex文档编写</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
-        <category>HandBook</category>
+        <category>Handbook</category>
         <category>Latex</category>
       </categories>
       <tags>
