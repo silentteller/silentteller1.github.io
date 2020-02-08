@@ -1004,7 +1004,7 @@ pre .javascript .function {
 }
 .site-title {
   display: inline-block;
-  font-family: 'Cinzel Decorative', 'EB Garamond', "Ma Shan Zheng", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Liu Jian Mao Cao', 'EB Garamond', "Ma Shan Zheng", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1186,7 +1186,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #347714;
+  background: #d4fa7a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1510,7 +1510,7 @@ pre .javascript .function {
   opacity: 0.8;
 }
 .post-body {
-  font-family: 'EB Garamond', "Ma Shan Zheng", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Ma Shan Zheng', 'EB Garamond', "Ma Shan Zheng", "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1814,7 +1814,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'EB Garamond', "Ma Shan Zheng", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Ma Shan Zheng', 'EB Garamond', "Ma Shan Zheng", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
