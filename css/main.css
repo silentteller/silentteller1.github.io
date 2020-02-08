@@ -1004,7 +1004,7 @@ pre .javascript .function {
 }
 .site-title {
   display: inline-block;
-  font-family: 'Zhi Mang Xing', 'Noto Serif', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Ma Shan Zheng', 'Noto Serif', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1186,7 +1186,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #7fc165;
+  background: #ffebb1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
