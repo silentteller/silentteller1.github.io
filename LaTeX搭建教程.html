@@ -76,6 +76,7 @@
     isPost: true
   };
 </script>
+<link rel="manifest" href="/manifest.json">
 <link href="<link href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,400,500,600,700&display=swap&subset=chinese-simplified" rel="stylesheet">
 <link href="<link href="<link href="https://fonts.loli.net/css?family=Ma+Shan+Zheng&display=swap&subset=chinese-simplified" rel="stylesheet">
 <link href="https://fonts.loli.net/css?family=Noto+Serif:400,700&display=swap&subset=latin-ext,vietnamese" rel="stylesheet">
@@ -113,6 +114,32 @@
 </noscript>
 
 </head>
+
+<div class="app-refresh" id="app-refresh">
+    <div class="app-refresh-wrap" onclick="location.reload()">
+        <label>已更新最新版本</label>
+        <span>点击刷新</span>
+    </div>
+</div>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.addEventListener('controllerchange', function() {
+                showNotification();
+            });
+        }
+
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js');
+        });
+    }
+
+    function showNotification() {
+        document.querySelector('meta[name=theme-color]').content = '#000';
+        document.getElementById('app-refresh').className += ' app-refresh-show';
+    }
+</script>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
