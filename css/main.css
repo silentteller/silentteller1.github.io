@@ -1186,7 +1186,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #283c53;
+  background: #f5ff7d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2392,10 +2392,10 @@ hr {
   }
 }
 .use-motion .logo-line-before i {
-  left: -100%;
+  left: -30%;
 }
 .use-motion .logo-line-after i {
-  right: 0%;
+  right: -30%;
 }
 .site-subtitle {
   display: yes;
@@ -2539,9 +2539,8 @@ hr {
   max-width: unset;
 }
 .site-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
-  line-height: 80px;
   letter-spacing: 3px;
 }
 .site-subtitle {
