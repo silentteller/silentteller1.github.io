@@ -3,8 +3,8 @@
     "short_name": "林深时见璐",
     "icons": [
         {
-            "src": "./icons/pwa_icon_512.png",
-            "sizes": "512x512",
+            "src": "/icons/pwa_icon_64.ico",
+            "sizes": "64x64",
             "type": "image/png"
         }
     ],
