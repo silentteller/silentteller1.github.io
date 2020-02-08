@@ -157,7 +157,7 @@ body {
 body {
   background: #fff;
   color: #555;
-  font-family: 'EB Garamond', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'EB Garamond', "Zhi Mang Xing", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
 }
@@ -173,7 +173,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'EB Garamond', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'EB Garamond', "Zhi Mang Xing", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -404,7 +404,7 @@ pre {
 }
 pre,
 code {
-  font-family: 'Source Code Pro', consolas, Menlo, monospace, "Noto Serif SC", "PingFang SC", "Microsoft YaHei";
+  font-family: 'Source Code Pro', consolas, Menlo, monospace, "Zhi Mang Xing", "PingFang SC", "Microsoft YaHei";
 }
 code {
   background: #eee;
@@ -1004,7 +1004,7 @@ pre .javascript .function {
 }
 .site-title {
   display: inline-block;
-  font-family: 'Cinzel Decorative', 'EB Garamond', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Cinzel Decorative', 'EB Garamond', "Zhi Mang Xing", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #45f2ff;
+  background: #be2625;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1516,7 +1516,7 @@ pre .javascript .function {
   opacity: 0.8;
 }
 .post-body {
-  font-family: 'EB Garamond', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'EB Garamond', "Zhi Mang Xing", "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1820,7 +1820,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'EB Garamond', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'EB Garamond', "Zhi Mang Xing", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -2543,6 +2543,75 @@ hr {
 }
 .utterances {
   max-width: unset;
+}
+.site-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 80px;
+  letter-spacing: 3px;
+}
+.site-subtitle {
+  margin: 0px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding-bottom: 3px;
+  font-weight: bold;
+  color: #fff;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #a166ab;
+}
+.menu {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 5px;
+  background-color: #f2f2f2;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.15);
+}
+.menu .menu-item a {
+  font-size: 15px;
+  border-bottom: none !important;
+}
+.menu .menu-item {
+  margin: 5px 15px;
+}
+.menu .menu-item .fa {
+  line-height: 22px;
+}
+.menu .menu-item a:hover {
+  color: #a166ab;
+  border-bottom: none !important;
+}
+.menu-item-active a {
+  color: #a166ab;
+}
+.post-body a {
+  color: #5073b8;
+  border-bottom: none;
+}
+.post-body a:hover {
+  color: #a166ab;
+  text-decoration: underline;
+}
+.posts-expand .post-meta a,
+.post-copyright a {
+  color: #5073b8;
+  border-bottom: none;
+}
+.posts-expand .post-meta a:hover,
+.post-copyright a:hover {
+  color: #a166ab;
+  text-decoration: underline;
+}
+a {
+  color: #5073b8;
+  border-bottom-color: #5073b8;
+}
+a:hover {
+  color: #a166ab;
+  border-bottom-color: #a166ab;
 }
 .chinese-zodiac {
   float: right;
