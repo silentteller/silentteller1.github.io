@@ -1186,7 +1186,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f5ff7d;
+  background: #50ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2548,12 +2548,13 @@ hr {
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: bold;
+  color: #1e90ff;
 }
 .post-body a {
   border-bottom: none;
 }
 .post-body a:hover {
-  color: #a166ab;
+  color: #1e90ff;
   text-decoration: underline;
 }
 .posts-expand .post-meta a,
@@ -2562,15 +2563,15 @@ hr {
 }
 .posts-expand .post-meta a:hover,
 .post-copyright a:hover {
-  color: #a166ab;
+  color: #1e90ff;
   text-decoration: underline;
 }
 a {
   border-bottom-color: #5073b8;
 }
 a:hover {
-  color: #a166ab;
-  border-bottom-color: #a166ab;
+  color: #1e90ff;
+  border-bottom-color: #1e90ff;
 }
 .chinese-zodiac {
   float: right;
