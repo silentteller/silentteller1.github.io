@@ -14,6 +14,8 @@
 
 <link rel="stylesheet" href="//fonts.loli.net/css?family=Noto Serif:300,300italic,400,400italic,700,700italic|Ma Shan Zheng:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 
 <script id="hexo-configurations">
@@ -48,7 +50,7 @@
 
   <meta name="description" content="作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上[1][2]。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LaTeX-Windows10安装教程">
+<meta property="og:title" content="LaTeX-安装教程">
 <meta property="og:url" content="https://linwhitehat.github.io/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html">
 <meta property="og:site_name" content="林深时见璐">
 <meta property="og:description" content="作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上[1][2]。">
@@ -58,9 +60,10 @@
 <meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-test-1.jpg">
 <meta property="og:image" content="https://linwhitehat.github.io/images/post-texlive-test-2.jpg">
 <meta property="article:published_time" content="2019-10-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-08T08:18:18.805Z">
+<meta property="article:modified_time" content="2020-02-08T08:28:17.449Z">
 <meta property="article:author" content="L1n">
 <meta property="article:tag" content="Latex安装">
+<meta property="article:tag" content="Windows10">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://linwhitehat.github.io/images/post-texlive-install-1.jpg">
 
@@ -82,7 +85,7 @@
 <link href="https://fonts.loli.net/css?family=Noto+Serif:400,700&display=swap&subset=latin-ext,vietnamese" rel="stylesheet">
 <link href="https://fonts.loli.net/css?family=Source+Code+Pro:200,300,400,500,600,700,900&display=swap&subset=latin-ext" rel="stylesheet">
 <link href="https://fonts.loli.net/css?family=Kalam:300,400,700&display=swap&subset=devanagari,latin-ext" rel="stylesheet">
-  <title>LaTeX-Windows10安装教程 | 林深时见璐</title>
+  <title>LaTeX-安装教程 | 林深时见璐</title>
   
 
 
@@ -237,7 +240,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          LaTeX-Windows10安装教程
+          LaTeX-安装教程
         </h2>
 
         <div class="post-meta">
@@ -254,7 +257,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-08 16:18:18" itemprop="dateModified" datetime="2020-02-08T16:18:18+08:00">2020-02-08</time>
+                <time title="修改时间：2020-02-08 16:28:17" itemprop="dateModified" datetime="2020-02-08T16:28:17+08:00">2020-02-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +278,7 @@
             </span>
 
           
-            <span id="/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html" class="post-meta-item leancloud_visitors" data-flag-title="LaTeX-Windows10安装教程" title="阅读次数">
+            <span id="/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html" class="post-meta-item leancloud_visitors" data-flag-title="LaTeX-安装教程" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -386,7 +389,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://linwhitehat.github.io/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html" title="LaTeX-Windows10安装教程">https://linwhitehat.github.io/LaTeX搭建教程.html</a>
+    <a href="https://linwhitehat.github.io/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html" title="LaTeX-安装教程">https://linwhitehat.github.io/LaTeX搭建教程.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -399,6 +402,7 @@
           
           <div class="post-tags">
               <a href="/tags/Latex%E5%AE%89%E8%A3%85/" rel="tag"><i class="fa fa-tag"></i> Latex安装</a>
+              <a href="/tags/Windows10/" rel="tag"><i class="fa fa-tag"></i> Windows10</a>
           </div>
 
         
@@ -406,10 +410,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html" rel="next" title="搭建个人博客(Hexo+Next+Github）">
-      搭建个人博客(Hexo+Next+Github） <i class="fa fa-chevron-right"></i>
+    <a href="/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html" rel="prev" title="搭建个人博客(Hexo+Next+Github）">
+      <i class="fa fa-chevron-left"></i> 搭建个人博客(Hexo+Next+Github）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Windows%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8.html" rel="next" title="Windows查看端口占用">
+      Windows查看端口占用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -508,7 +515,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -566,7 +573,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">15k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
