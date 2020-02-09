@@ -104,32 +104,6 @@
 
 </head>
 
-<div class="app-refresh" id="app-refresh">
-    <div class="app-refresh-wrap" onclick="location.reload()">
-        <label>已更新最新版本</label>
-        <span>点击刷新</span>
-    </div>
-</div>
-
-<script>
-    if ('serviceWorker' in navigator) {
-        if (navigator.serviceWorker.controller) {
-            navigator.serviceWorker.addEventListener('controllerchange', function() {
-                showNotification();
-            });
-        }
-
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js');
-        });
-    }
-
-    function showNotification() {
-        document.querySelector('meta[name=theme-color]').content = '#000';
-        document.getElementById('app-refresh').className += ' app-refresh-show';
-    }
-</script>
-
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
@@ -311,8 +285,8 @@
       </div>
 
       <h3 class="post-title">
-          <a class="post-title-link" href="/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html" itemprop="url">
-            <span itemprop="name">LaTeX-安装教程</span>
+          <a class="post-title-link" href="/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html" itemprop="url">
+            <span itemprop="name">搭建个人博客(Hexo+Next+Github）</span>
           </a>
       </h3>
 
@@ -331,8 +305,8 @@
       </div>
 
       <h3 class="post-title">
-          <a class="post-title-link" href="/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html" itemprop="url">
-            <span itemprop="name">搭建个人博客(Hexo+Next+Github）</span>
+          <a class="post-title-link" href="/LaTeX%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B.html" itemprop="url">
+            <span itemprop="name">LaTeX-安装教程</span>
           </a>
       </h3>
 
@@ -781,5 +755,31 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   </script>
 
   
+  
+  <div class="app-refresh" id="app-refresh">
+    <div class="app-refresh-wrap" onclick="location.reload()">
+        <label>已更新最新版本</label>
+        <span>点击刷新</span>
+    </div>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.addEventListener('controllerchange', function() {
+                showNotification();
+            });
+        }
+
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js');
+        });
+    }
+
+    function showNotification() {
+        document.querySelector('meta[name=theme-color]').content = '#000';
+        document.getElementById('app-refresh').className += ' app-refresh-show';
+    }
+  </script>
 </body>
 </html>
