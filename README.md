@@ -1,4 +1,4 @@
-# ![](https://i.imgur.com/CtRWV2C.png)林深时见璐
+# ![](https://github.com/linwhitehat/linwhitehat.github.io/blob/master/icons/rabbit96.png) 林深时见璐
 
 [![](https://img.shields.io/badge/Home-L1n-brightgreen.svg)](https://linwhitehat.github.io/l1n/) ![](https://img.shields.io/badge/license-MIT-000000.svg) ![](https://img.shields.io/badge/language-html/css-blue.svg) [![codebeat badge](https://codebeat.co/badges/126ff5d4-974f-4bab-8d4f-11c5da83d415)](https://codebeat.co/projects/github-com-linwhitehat-linwhitehat-github-io-master)
 
@@ -11,4 +11,4 @@ My Blog. => https://linwhitehat.github.io
 
 ## 版权
 [知识共享许可协议]()
-本博客所有文章除特别声明外，均采用[知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)进行许可。
+本博客所有文章除特别声明外，均采用[by-nc-sa 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)进行许可。
