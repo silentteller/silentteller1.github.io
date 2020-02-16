@@ -1,10 +1,13 @@
-# ![](https://github.com/linwhitehat/linwhitehat.github.io/blob/master/icons/rabbit96.png) 林深时见璐
+<p align="center">
+# ![](https://github.com/linwhitehat/linwhitehat.github.io/blob/master/icons/rabbit64.png) 林深时见璐
+</p>
 
 [![](https://img.shields.io/badge/Home-L1n-brightgreen.svg)](https://linwhitehat.github.io/l1n/) ![](https://img.shields.io/badge/license-MIT-000000.svg) ![](https://img.shields.io/badge/language-html/css-blue.svg) [![codebeat badge](https://codebeat.co/badges/126ff5d4-974f-4bab-8d4f-11c5da83d415)](https://codebeat.co/projects/github-com-linwhitehat-linwhitehat-github-io-master)
 
 ## Homepage & Blog
-My Homepage. => https://linwhitehat.github.io/l1n/
-My Blog. => https://linwhitehat.github.io
+
+- My Homepage. => https://linwhitehat.github.io/l1n/
+- My Blog. => https://linwhitehat.github.io
 
 ## 博客相关
 [建站日志](https://linwhitehat.github.io/blogLog/) | [访友录-留言](https://linwhitehat.github.io/guest/) | [联系](eric_lin_cn@outlook.com)
