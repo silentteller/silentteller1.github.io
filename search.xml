@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git专栏系列</title>
+    <url>/2020/02/17/Git%E4%B8%93%E6%A0%8F.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>随着对 GitHub 和 Gitlab 使用频次增加，对版本管理和使用需求逐渐增加，学会基本的 Git 技能对于工科生已经是必备技巧了，但是还是要不断学会更加灵巧的使用，同时分布式管理版本需要有意识的做好版本信息说明，且分支、权限等设置对于 Gitlab 使用十分重要，一起学习Git吧。</p>
+<a id="more"></a>
+
+<h2 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h2><p>待补充，目前写作<code>draft</code>中。第一次部署 Gitlab 的流程可参照<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[Gitlab创建新项目](https://www.jianshu.com/p/c91ea165eaa4)
+">[1]</span></a></sup>。</p>
+<h2 id="特殊文件说明"><a href="#特殊文件说明" class="headerlink" title="特殊文件说明"></a>特殊文件说明</h2><h3 id="gitkeep"><a href="#gitkeep" class="headerlink" title=".gitkeep"></a>.gitkeep</h3><p>这个文件之前我也没遇到过，直到最近准备在组织给建立的 Gitlab 项目上传内容时，准备将空项目<code>pull</code>下来时，发现本地目录出现了<code>.gitkeep</code>文件，由此产生好奇，进而查阅资料后发现它的作用是为了使一个空文件夹能够被正常同步，即当文件夹中没有任何内容时加入<code>.gitkeep</code>使得文件夹能够被同步。</p>
+<h2 id="常见问题-amp-解决"><a href="#常见问题-amp-解决" class="headerlink" title="常见问题&amp;解决"></a>常见问题&amp;解决</h2><h3 id="Gitlab使用git-clone-git-xxx被拒绝"><a href="#Gitlab使用git-clone-git-xxx被拒绝" class="headerlink" title="Gitlab使用git clone@git.xxx被拒绝"></a>Gitlab使用<code>git clone@git.xxx</code>被拒绝</h3><p>在第一次对 Gitlab 上面的项目进行<code>clone</code>时发现服务器拒绝访问，且<code>22</code>端口无法连接通信，意味着使用<code>ssh</code>连接项目仓库时无法正常连接，发生这种情况可检查以下情况是否存在:</p>
+<ol>
+<li>Gitlab 账号是否导入<code>SSH KEY</code></li>
+<li>咨询所在 Gitlab 项目的组织管理员是否将<code>22</code>端口关闭，以及确认权限分配情况</li>
+</ol>
+<p>这种情况下，可以使用<code>https</code>的访问方式进行项目管理，访问方式变化如下：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">- git clone git@git.123.com:abc/test.git</span></span><br><span class="line"><span class="addition">+ git clone https://git.123.com/abc/test.git</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多个-SSH-KEY-管理"><a href="#多个-SSH-KEY-管理" class="headerlink" title="多个 SSH KEY 管理"></a>多个 SSH KEY 管理</h3><p>当同时使用 Github 和 Gitlab 时，一般是私人和办公的情况，此时使用的邮箱账号是不同的，而要使用 Git 进行项目管理就需要配置 SSH KEY，为了避免第二次生成 SSH KEY 时将原先的 SSH KEY 覆盖，在此记录一下解决方法。</p>
+<h4 id="已存在-Github-再配置-Gitlab"><a href="#已存在-Github-再配置-Gitlab" class="headerlink" title="已存在 Github 再配置 Gitlab"></a>已存在 Github 再配置 Gitlab</h4><p>一般个人会先拥有 Github，我也是先使用了 Github，因此经过了一次配置 SSH KEY，此时在<code>git bash</code>查看本地<code>~/.ssh</code>，如果存在<code>id_rsa</code>则说明已经存在公钥，则按照下述步骤进行配置：</p>
+<ol>
+<li>第二个 SSH KEY生成（我是 Gitlab）</li>
+</ol>
+<p>打开<code>git bash</code>，执行以下命令，其中<code>email</code>填写自己的邮箱地址：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
+<p>出现以下信息时，将公钥名称做修改如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/Yourname/.ssh/id_rsa): /c/Users/Yourname/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+<p>其中<code>Yourname</code>即Windows下用户名，输入的内容即将默认信息中的<code>id_rsa</code>进行命名修改，之后可以默认回车，也可以根据自身情况设置。<br>配置完成之后，查看<code>~/.ssh</code>可以看到多出两个文件，且命名包括<code>id_rsa_gitlab</code>即完成公钥生成。<br>2. 由于是在微软下使用的<code>msysgit</code>，在<code>git bash</code>中输入以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">eval</span> $(ssh-agent -s)</span><br></pre></td></tr></table></figure>
+<p>如果使用的是 Github 官方的bash工具，则输入<code>ssh-agent -s</code>。<br>上述操作用于打开ssh-agent，否则会在添加私钥信息时报错<code>Could not open a connection to your authentication agent</code>。<br>3. 添加私钥</p>
+<p>在<code>git bash</code>中输入以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br><span class="line">ssh-add ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+<p>其中<code>id_rsa</code>是我用于 Github 的密钥文件，若提示文件或目录不存在，则使用绝对地址。<br>4. 配置<code>config</code></p>
+<p>在<code>~/.ssh</code>下创建<code>config</code>文件，添加下述内容：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="addition">+ # gitlab</span></span><br><span class="line"><span class="addition">+   Host git.iboxpay.com      //这里填公司的git网址</span></span><br><span class="line"><span class="addition">+   HostName git.iboxpay.com  //这里填公司的git网址</span></span><br><span class="line"><span class="addition">+   PreferredAuthentications publickey</span></span><br><span class="line"><span class="addition">+   IdentityFile ~/.ssh/id_rsa_gitlab</span></span><br><span class="line"><span class="addition">+   User zhangjun</span></span><br><span class="line">    </span><br><span class="line"><span class="addition">+ # github</span></span><br><span class="line"><span class="addition">+   Host github.com</span></span><br><span class="line"><span class="addition">+   HostName github.com</span></span><br><span class="line"><span class="addition">+   PreferredAuthentications publickey</span></span><br><span class="line"><span class="addition">+   IdentityFile ~/.ssh/id_rsa_github</span></span><br><span class="line"><span class="addition">+   User ZJsnowman</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>在 Gitlab 添加公钥</li>
+</ol>
+<p>配置完密钥管理，在 Gitlab 的设置中添加之前生成的 SSH KEY即可。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.jianshu.com/p/c91ea165eaa4" target="_blank" rel="noopener external nofollow noreferrer">Gitlab创建新项目</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.jianshu.com/p/f7f4142a1556" target="_blank" rel="noopener external nofollow noreferrer">管理git生成多个SSH KEY</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.awaimai.com/2200.html" target="_blank" rel="noopener external nofollow noreferrer">git配置多个SSH KEY</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://segmentfault.com/a/1190000002994742" target="_blank" rel="noopener external nofollow noreferrer">gitlab/github 多账户下设置 ssh keys</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.cnblogs.com/hafiz/p/8146324.html" target="_blank" rel="noopener external nofollow noreferrer">GitLab配置ssh key</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.csdn.net/hdn_kb/article/details/99413390" target="_blank" rel="noopener external nofollow noreferrer">同步本地文件/文件目录到gitlab</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>Gitlab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>个人信息隐私保护的法律及技术双重角度思考</title>
     <url>/2020/02/12/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E7%9A%84%E6%B3%95%E5%BE%8B%E5%8F%8A%E6%8A%80%E6%9C%AF%E5%8F%8C%E9%87%8D%E8%A7%92%E5%BA%A6%E6%80%9D%E8%80%83.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在新型网络环境下，中国在个人信息隐私保护方面愈发重视，本文从法律和技术两方面介绍了相关情况，并通过案例简析及借鉴国外相关法律，提出在现有法律基础上健全个人信息隐私保护范围、判定依据、明确权利内涵等建议，并建议结合区块链和云计算取证等新兴技术为个人信息隐私保护提供技术支持。</p>
@@ -412,7 +459,19 @@
 <li>打开命令行，输入<code>wmic</code>，在wmic提示符下输入<code>memorychip</code>，可看到当前电脑内存信息。<br><img src="/images/windows-13.png" alt="内存信息"><i class="img-caption">☆ 内存信息</i></li>
 <li>解读显示的内存信息，<code>Capacity</code>表示内存大小，<code>ConfiguredClockSpeed</code>表示内存频率，<code>DataWidth</code>表示位宽，其中要判断型号是<code>DDR</code>的哪个版本，从频率可以判断，一般频率在2400以上的即<code>DDR4</code>，这也是当前最常见的内存型号，如果要直观查看，可以使用第三方软件<code>cpu-z</code>查看。</li>
 </ol>
+<h2 id="CPU型号查看"><a href="#CPU型号查看" class="headerlink" title="CPU型号查看"></a>CPU型号查看</h2><p>要了解自身电脑的CPU情况，除了上网搜索官网配置信息外，可以在本地便捷的进行查看，一般要了解的是CPU的版本、厂商、线程数、核数等，使用Windows内置功能来完成查询。</p>
+<h3 id="物理CPU个数"><a href="#物理CPU个数" class="headerlink" title="物理CPU个数"></a>物理CPU个数</h3><p>打开命令行，输入<code>systeminfo</code>，查看<code>处理器</code>一项即可看到电脑使用处理器个数。</p>
+<h3 id="查看CPU配置信息"><a href="#查看CPU配置信息" class="headerlink" title="查看CPU配置信息"></a>查看CPU配置信息</h3><p>打开命令行，输入<code>wmic</code>，之后输入<code>cpu get *</code>或<code>cpu get</code>，里面包含电脑中所搭载的CPU配置信息，如<code>NumberOfCores</code>表示CPU核数，<code>NumberOfLogicalProcessors</code>表示CPU线程数，<code>Caption</code>表示厂商信息，其他详细内容可自行查看。</p>
+<h2 id="查看网口信息"><a href="#查看网口信息" class="headerlink" title="查看网口信息"></a>查看网口信息</h2><h3 id="命令行方式"><a href="#命令行方式" class="headerlink" title="命令行方式"></a>命令行方式</h3><p>打开命令行，输入<code>systeminfo</code>，查看<code>网卡</code>一项即可。</p>
+<h3 id="可视化方式"><a href="#可视化方式" class="headerlink" title="可视化方式"></a>可视化方式</h3><p>在开始菜单搜索<code>计算机管理</code>，打开<code>计算机管理</code>，点击左侧<code>设备管理器</code>，选择<code>网络适配器</code>查看。</p>
 <h2 id="常见问题-amp-解决方法"><a href="#常见问题-amp-解决方法" class="headerlink" title="常见问题&amp;解决方法"></a>常见问题&amp;解决方法</h2><h3 id="浏览器如chrome无法正常播放声音"><a href="#浏览器如chrome无法正常播放声音" class="headerlink" title="浏览器如chrome无法正常播放声音"></a>浏览器如chrome无法正常播放声音</h3><p>问题：<br>&emsp;&emsp;当使用网易云音乐、QQ、影视播放软件等软件可以正常播放声音，而常用浏览器却不能播放声音，重启仍然无效时，问题一般是浏览器的声音播放被禁止了，即针对性的对某个应用做了声音禁止。<br>解决：<br>&emsp;&emsp;解决办法即查看系统<code>声音设置</code>以及<code>声音合成器</code>，在桌面右下角菜单栏找到<code>🔈</code>形状的<code>扬声器</code>，右键点击可以看到选项，查看浏览器是否被禁音，将其解除即可。<br><img src="/images/windows-14.png" alt="扬声器"><i class="img-caption">☆ 扬声器</i><br><img src="/images/windows-15.png" alt="扬声器设置"><i class="img-caption">☆ 扬声器设置</i></p>
+<h3 id="进程连接设备平台用户服务-338f0c6占用CPU"><a href="#进程连接设备平台用户服务-338f0c6占用CPU" class="headerlink" title="进程连接设备平台用户服务_338f0c6占用CPU"></a>进程<code>连接设备平台用户服务_338f0c6</code>占用CPU</h3><p>这个进程根据介绍是对外接设备的正常运行进行提供服务的，但是我并没有连接U盘、移动硬盘、触摸板等设备，结果后台自动启动这个进程，导致CPU资源被占用，查询微软社区后，参照<sup id="fnref:12"><a href="#fn:12" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[连接设备平台用户服务长时间高CPU占用](https://answers.microsoft.com/zh-hans/windows/forum/all/%E8%BF%9E%E6%8E%A5%E8%AE%BE%E5%A4%87%E5%B9%B3/6f6494fe-0610-4dac-8bfd-8da6d70d1670)
+">[12]</span></a></sup><sup id="fnref:13"><a href="#fn:13" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[什么是连接设备平台服务？ 我应该禁用吗？](http://windowsbulletin.com/zh-CN/%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%9E%E6%8E%A5%E8%AE%BE%E5%A4%87%E5%B9%B3%E5%8F%B0%E6%9C%8D%E5%8A%A1%E6%88%91%E5%BA%94%E8%AF%A5%E7%A6%81%E7%94%A8%E5%AE%83/)">[13]</span></a></sup>，得到解决方法如下：</p>
+<ol>
+<li>若是有连接的外接设备确保已经移除且断开连接；</li>
+<li>将<code>连接设备平台用户服务_338f0c6</code>进程停止并禁用，同时在<code>服务</code>中找到<code>Superfetch</code>、<code>Homegroup Listener</code>、<code>Homegroup Provider</code>和<code>DiagTrack Diagnostics Tracking Service</code>，若是Windows系统版本较新（我的是Windows10-1903），则在服务中找到<code>Diagnostic Policy Service</code>、<code>Diagnostic Service Host</code>和<code>Diagnostic System Host</code>，将对应进程停止并禁用，重启电脑；</li>
+<li>查看系统<code>虚拟内存</code>设置是否是默认情况，虚拟内存查看请打开<code>我的电脑</code>属性，位于<code>系统-&gt;高级系统设置-&gt;高级-&gt;性能-&gt;设置-&gt;高级-&gt;虚拟内存设置</code>。</li>
+</ol>
 <h2 id="推荐工具"><a href="#推荐工具" class="headerlink" title="推荐工具"></a>推荐工具</h2><h3 id="CMD-下载百度云资源"><a href="#CMD-下载百度云资源" class="headerlink" title="CMD-下载百度云资源"></a>CMD-下载百度云资源</h3><p>PanDownload 的作者于2018年宣布不再维护和开放服务，因此网页版PanDownload不可用，客户端目前不受影响，而同时作者提出另一种绕过百度云客户端限速的方法即通过<code>CMD</code>进行下载，转载来到本博客，详情参照作者博客<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[BaiduPCS-Go 使用CMD命令行全速下载百度云](https://laod.cn/black-technology/baidupcs-go-baiduyun.html)
 ">[5]</span></a></sup>。</p>
 <h3 id="Html-JS压缩及还原"><a href="#Html-JS压缩及还原" class="headerlink" title="Html/JS压缩及还原"></a>Html/JS压缩及还原</h3><p>经过压缩的源码想再编辑时需要还原为原来的形式，使用<a href="https://tool.lu/html/" target="_blank" rel="noopener external nofollow noreferrer">TOOL</a>可以快速还原前端代码，方便二次编辑。</p>
@@ -427,13 +486,14 @@
 ">[8]</span></a></sup>，具体见下图。<br><img src="/images/windows-16.png" alt="卸载Avast"><i class="img-caption">☆ 卸载Avast</i></li>
 </ol>
 <p>将官网及最新版 PotPlayer 在<a href="https://www.virustotal.com/" target="_blank" rel="noopener external nofollow noreferrer">VirusTotal</a>进行恶意性检测，结果如下：<br><img src="/images/windows-17.png" alt="PotPlayer官网检测结果"><i class="img-caption">☆ PotPlayer官网检测结果</i><br><img src="/images/windows-18-1.png" alt="PotPlayer-200204检测结果"><i class="img-caption">☆ PotPlayer-200204检测结果</i><br><img src="/images/windows-18-2.png" alt="PotPlayer-200204 Hash-256 校验"><i class="img-caption">☆ PotPlayer-200204 Hash-256 校验</i></p>
-<h3 id="GitHub-和-Git"><a href="#GitHub-和-Git" class="headerlink" title="GitHub 和 Git"></a>GitHub 和 Git</h3><p><a href="https://github.com/" target="_blank" rel="noopener external nofollow noreferrer">GitHub</a>是全球最大的代码托管平台即软件源代码托管服务平台，而<a href="https://git-scm.com/" target="_blank" rel="noopener external nofollow noreferrer">Git</a>是分布式版本控制软件，Github 可通过 Git 进行版本控制，Git 是终端模式使用的工具，也有可视化使用的版本控制工具，本着开源开放交流的精神，要写出更优更美的代码，托管到开源平台，各路大神自有评说🤭。</p>
+<h3 id="GitHub-和-Git"><a href="#GitHub-和-Git" class="headerlink" title="GitHub 和 Git"></a>GitHub 和 Git</h3><p><a href="https://github.com/" target="_blank" rel="noopener external nofollow noreferrer">GitHub</a>是全球最大的代码托管平台即软件源代码托管服务平台，而<a href="https://git-scm.com/" target="_blank" rel="noopener external nofollow noreferrer">Git</a>是分布式版本控制软件，Github 可通过 Git 进行版本控制，Git 是终端模式使用的工具，也有可视化使用的版本控制工具，本着开源开放交流的精神，要写出更优更美的代码，托管到开源平台，各路大神自有评说🤭，鉴于我也在学习和使用中，同时最近开始接触 Gitlab，因此建立了 Git学习专栏，可查看<a href="https://linwhitehat.github.io/2020/02/17/Git%E4%B8%93%E6%A0%8F.html">Git专栏</a>。</p>
 <h4 id="GitHub-issue"><a href="#GitHub-issue" class="headerlink" title="GitHub issue"></a>GitHub issue</h4><p>当创建 GitHub 仓库项目之后，可以在项目的<code>Issues</code>里进行交流，可以提问和回答，参照<a href="https://blog.csdn.net/github_30605157/article/details/52837864" target="_blank" rel="noopener external nofollow noreferrer">熟练使用Issues</a>。</p>
 <h4 id="Github-README"><a href="#Github-README" class="headerlink" title="Github README"></a>Github README</h4><p>每个项目的说明即 README 部分要写清楚，同时又要美观，有一个专业方式即加上项目徽章，效果可看我的<a href="https://github.com/linwhitehat/linwhitehat.github.io" target="_blank" rel="noopener external nofollow noreferrer">博客项目页面</a>，可参照<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[GitHub 项目徽章的添加和设置](https://lpd-ios.github.io/2017/05/03/GitHub-Badge-Introduction/)
 ">[9]</span></a></sup><sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[如何在 README 里面添加徽章](https://github.com/yangwenmai/how-to-add-badge-in-github-readme)
-">[10]</span></a></sup><sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[GitHub上 README 增加图片标签](https://blog.csdn.net/yangbodong22011/article/details/51791085)">[11]</span></a></sup>。</p>
+">[10]</span></a></sup><sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[GitHub上 README 增加图片标签](https://blog.csdn.net/yangbodong22011/article/details/51791085)
+">[11]</span></a></sup>。</p>
 <h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>本着手册即查即用的原则，这篇博文写的十分简要，很少说明部分，直接贴出操作。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html" target="_blank" rel="noopener external nofollow noreferrer">Windows下如何查看某个端口被谁占用</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://zhuanlan.zhihu.com/p/26255460" target="_blank" rel="noopener external nofollow noreferrer">读懂内存</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.crucial.cn/memory" target="_blank" rel="noopener external nofollow noreferrer">英睿达</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://pandownload.com/index.html" target="_blank" rel="noopener external nofollow noreferrer">PanDownload</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://laod.cn/black-technology/baidupcs-go-baiduyun.html" target="_blank" rel="noopener external nofollow noreferrer">BaiduPCS-Go 使用CMD命令行全速下载百度云</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.52pojie.cn/thread-1086427-1-1.html" target="_blank" rel="noopener external nofollow noreferrer">Potplayer自动更新会下载安装Avast杀毒</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://malwaretips.com/threads/malware-or-false-positive-in-potplayer.94097/" target="_blank" rel="noopener external nofollow noreferrer">Malware or False positive in Potplayer?</a><a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.avast.com/zh-cn/uninstall-utility" target="_blank" rel="noopener external nofollow noreferrer">使用 avastclear 卸载 Avast Antivirus</a><a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://lpd-ios.github.io/2017/05/03/GitHub-Badge-Introduction/" target="_blank" rel="noopener external nofollow noreferrer">GitHub 项目徽章的添加和设置</a><a href="#fnref:9" rev="footnote"> ↩</a></span></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/yangwenmai/how-to-add-badge-in-github-readme" target="_blank" rel="noopener external nofollow noreferrer">如何在 README 里面添加徽章</a><a href="#fnref:10" rev="footnote"> ↩</a></span></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.csdn.net/yangbodong22011/article/details/51791085" target="_blank" rel="noopener external nofollow noreferrer">GitHub上 README 增加图片标签</a><a href="#fnref:11" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html" target="_blank" rel="noopener external nofollow noreferrer">Windows下如何查看某个端口被谁占用</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://zhuanlan.zhihu.com/p/26255460" target="_blank" rel="noopener external nofollow noreferrer">读懂内存</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.crucial.cn/memory" target="_blank" rel="noopener external nofollow noreferrer">英睿达</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://pandownload.com/index.html" target="_blank" rel="noopener external nofollow noreferrer">PanDownload</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://laod.cn/black-technology/baidupcs-go-baiduyun.html" target="_blank" rel="noopener external nofollow noreferrer">BaiduPCS-Go 使用CMD命令行全速下载百度云</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.52pojie.cn/thread-1086427-1-1.html" target="_blank" rel="noopener external nofollow noreferrer">Potplayer自动更新会下载安装Avast杀毒</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://malwaretips.com/threads/malware-or-false-positive-in-potplayer.94097/" target="_blank" rel="noopener external nofollow noreferrer">Malware or False positive in Potplayer?</a><a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.avast.com/zh-cn/uninstall-utility" target="_blank" rel="noopener external nofollow noreferrer">使用 avastclear 卸载 Avast Antivirus</a><a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://lpd-ios.github.io/2017/05/03/GitHub-Badge-Introduction/" target="_blank" rel="noopener external nofollow noreferrer">GitHub 项目徽章的添加和设置</a><a href="#fnref:9" rev="footnote"> ↩</a></span></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/yangwenmai/how-to-add-badge-in-github-readme" target="_blank" rel="noopener external nofollow noreferrer">如何在 README 里面添加徽章</a><a href="#fnref:10" rev="footnote"> ↩</a></span></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.csdn.net/yangbodong22011/article/details/51791085" target="_blank" rel="noopener external nofollow noreferrer">GitHub上 README 增加图片标签</a><a href="#fnref:11" rev="footnote"> ↩</a></span></li><li id="fn:12"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">12.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://answers.microsoft.com/zh-hans/windows/forum/all/%E8%BF%9E%E6%8E%A5%E8%AE%BE%E5%A4%87%E5%B9%B3/6f6494fe-0610-4dac-8bfd-8da6d70d1670" target="_blank" rel="noopener external nofollow noreferrer">连接设备平台用户服务长时间高CPU占用</a><a href="#fnref:12" rev="footnote"> ↩</a></span></li><li id="fn:13"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">13.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://windowsbulletin.com/zh-CN/%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%9E%E6%8E%A5%E8%AE%BE%E5%A4%87%E5%B9%B3%E5%8F%B0%E6%9C%8D%E5%8A%A1%E6%88%91%E5%BA%94%E8%AF%A5%E7%A6%81%E7%94%A8%E5%AE%83/" target="_blank" rel="noopener external nofollow noreferrer">什么是连接设备平台服务？ 我应该禁用吗？</a><a href="#fnref:13" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>Handbook</category>
         <category>Windows</category>
@@ -443,6 +503,66 @@
         <tag>wifi</tag>
         <tag>录屏</tag>
         <tag>内存型号</tag>
+        <tag>CPU</tag>
+        <tag>网卡</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LaTeX-安装教程</title>
+    <url>/2019/10/12/LaTeX%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[TeX Live & TeXstudio 安装手记](https://www.cnblogs.com/joyeecheung/p/3596255.html)
+">[1]</span></a></sup><sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第一篇tex文档编写](http://www.ctex.org/OnlineDocuments)
+">[2]</span></a></sup>。</p>
+<a id="more"></a>
+
+<h2 id="调研选择"><a href="#调研选择" class="headerlink" title="调研选择"></a>调研选择</h2><p>其实这部分只是自己做一点记录，急需安装教程的请跳过，请看第2节。</p>
+<p>经过多番Google、csdn以及知乎的查阅，大概了解了latex的编译环境和编辑环境，主流的有ctex、texlive、texstudio+winedt等等，我的选择变化大致如下：</p>
+<ol>
+<li><p>在上过的一门算法课中老师推荐了跨平台下的latex集成工具，ctex被建议在windows下使用，所以最初我的选择是ctex，附上清华镜像，<a href="https://mirrors.tuna.tsinghua.edu.cn/ctex/legacy/2.9/" target="_blank" rel="noopener external nofollow noreferrer" title="ctex清华镜像">Ctex-mirror</a>，官方网站<a href="http://www.ctex.org/HomePage" target="_blank" rel="noopener external nofollow noreferrer">CTeX</a>，加上ctex对中文的支持很好，且集成工具完整，当下载3G的安装包时，我又调研了不少教程，但是在某csdn的教程中看的评论有人评价ctex已不维护很久，同时ctex安装后会对系统环境变量进行覆盖，想想这个风险还是挺大的，毕竟安装需要配置换件变量的应用还挺多的，这篇<a href="https://liam.page/texlive/" target="_blank" rel="noopener external nofollow noreferrer">博文</a>有说明，接着看到在不少教程中推荐texlive（可谓官方），这是由 TUG (TeX User Group) 维护和发布的tex系统，接着有了第2个选择；</p>
+</li>
+<li><p>开始调研texlive，看看官网<a href="https://tug.org/texlive/" target="_blank" rel="noopener external nofollow noreferrer" title="texlive">TexLive</a>，维护还是比较好的，有2019最新版本，有多国镜像，有完整教学文档，感觉比ctex完善很多，果断放弃ctex，尽管这个时候安装文件也下载得差不多了，同时看到texstudio是tex编辑的不错的集成环境，官方的介绍是这样的：</p>
+</li>
+</ol>
+<p><em>TeXstudio is an integrated writing environment for creating LaTeX documents. Our goal is to make writing LaTeX as easy and comfortable as possible. Therefore TeXstudio has numerous features like syntax-highlighting, integrated viewer, reference checking and various assistants.</em></p>
+<p>安装提供zip压缩包直接解压使用，很适合我这种不喜欢安装包的人，因为便于迁移，抉择已定，开始下载和安装。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><blockquote>
+<p>先提供需要安装的文件（texlive和texstudio）的<a href="https://pan.baidu.com/s/1mRKV0VeNfjxhY6qGvSQdLw" target="_blank" rel="noopener external nofollow noreferrer" title="网盘链接">网盘链接</a>，提取码：uhbe </p>
+</blockquote>
+<p>官方提供了下载方式：</p>
+<ol>
+<li>texlive，<a href="https://mirror.bjtu.edu.cn/ctan/systems/texlive/Images/texlive2019.iso" target="_blank" rel="noopener external nofollow noreferrer">官方镜像</a>，如果访问不了，可以访问国内镜像，如<a href="http://mirrors.ustc.edu.cn/CTAN/systems/texlive/" target="_blank" rel="noopener external nofollow noreferrer">中科大镜像</a>；</li>
+<li>texstudio，我选择的是zip压缩文件形式，<a href="https://github.com/texstudio-org/texstudio/releases/download/2.12.16/texstudio-2.12.16-win-portable-qt5.zip" target="_blank" rel="noopener external nofollow noreferrer">下载</a>；</li>
+</ol>
+<p>当然也可以直接下载我网盘分享的镜像和安装包，可以使用官方提供的md5值进行比对验证文件没有被篡改。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="TexLive-安装"><a href="#TexLive-安装" class="headerlink" title="TexLive 安装"></a>TexLive 安装</h3><p>下载好iso文件之后，由于我是win10系统，可以直接加载iso镜像文件，因此双击打开即可，如果是win7及以前的版本需要先解压iso文件，双击打开install-tl-advanced.bat文件，会出现以下界面：</p>
+<p><img src="/images/post-texlive-install-1.jpg" alt="安装启动界面"><i class="img-caption">☆ 安装启动界面</i></p>
+<p>点击<em>修改</em>更换需要安装的文件路径，路径建议不要带有中文和特殊字符；<br>点击<em>Advanced</em>修改安装选项，但默认是所有都选上，所以可以不用修改（因为涉及调用的宏包以及scheme选择，如果不了解还是默认，避免后续麻烦）；<br>点击<em>安装</em>，然后就是漫长的安装过程，安装期间可以做自己的事情，安装完成后显示如下：</p>
+<p><img src="/images/post-texlive-install-2.jpg" alt="安装完成界面"><i class="img-caption">☆ 安装完成界面</i></p>
+<p>做一下安装是否成功的检查：</p>
+<ol>
+<li>在开始菜单中搜索<em>TeX Live command-line</em>，执行以下命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">xelatex -v</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>如果正常会显示如下信息，即正常的texlive版本号：</p>
+<p><img src="/images/post-texlive-test-1.jpg" alt="测试正常界面"><i class="img-caption">☆ 测试正常界面</i></p>
+<p>如果显示错误如下，应该是系统环境变量的问题，进入系统环境变量（系统属性-&gt;高级系统设置-&gt;环境变量），将<em>Path</em>环境变量新增texlive进去，即将安装好的texlive文件目录下的bin文件夹所在的路径作为环境变量。</p>
+<p><img src="/images/post-texlive-test-2.jpg" alt="测试错误界面"><i class="img-caption">☆ 测试错误界面</i></p>
+<h3 id="TexStudio-安装"><a href="#TexStudio-安装" class="headerlink" title="TexStudio 安装"></a>TexStudio 安装</h3><p>下载好zip压缩文件之后，直接解压就可以使用，十分方便！</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>主要是texstudio需要进行配置，更适合国内人士使用。</p>
+<h3 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h3><p>打开texstudio之后，在主界面中显示的是英文，点击菜单栏的<em>Options</em>，点击<em>Configure TeXstudio</em>，在<em>General</em>选项下将<em>Language</em>选择为<em>zh_CN</em>，点击确定；</p>
+<h3 id="编译环境设置"><a href="#编译环境设置" class="headerlink" title="编译环境设置"></a>编译环境设置</h3><p>在语言设置一样的窗口，此时显示语言是中文，点击<em>构建</em>-&gt;<em>默认编译器<em>设置为”XeLaTeX”，支持中文LaTeX文档；<br>将</em>构建</em>-&gt;<em>默认文献工具<em>设置为”Biber”；<br>在</em>命令</em>-&gt;<em>XeLaTeX</em>设置编译参数，使用 -shell-escape 参数以支持“minted”代码排版宏包；</p>
+<p>点击<em>构建</em>-&gt;<em>默认编译器<em>设置为”Latexmk”实现一次性编译；<br>将</em>命令</em>-&gt;<em>Latexmk<em>的 -pdf 参数修改为 -xelatex 以支持中文；<br>在</em>命令</em>-&gt;<em>Latexmk</em>设置编译参数，使用 -shell-escape 参数以支持“minted”代码排版宏包；<br>点击确定</p>
+<p>点击菜单栏<em>帮助</em>-&gt;<em>检查Latex安装信息</em>，若正确输出系统报告，说明texlive正常工作。</p>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>第一篇tex文档参照这篇博客，<a href="https://blog.csdn.net/yeler082/article/details/80665186" target="_blank" rel="noopener external nofollow noreferrer">Texlive+TeXstudio 入门安装使用</a>，照着输入，然后点击两个绿色箭头重叠的按钮，可以看到实时生成的文档。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.cnblogs.com/joyeecheung/p/3596255.html" target="_blank" rel="noopener external nofollow noreferrer">TeX Live &amp; TeXstudio 安装手记</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://www.ctex.org/OnlineDocuments" target="_blank" rel="noopener external nofollow noreferrer">第一篇tex文档编写</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex安装</tag>
+        <tag>Windows10</tag>
       </tags>
   </entry>
   <entry>
@@ -532,63 +652,6 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LaTeX-安装教程</title>
-    <url>/2019/10/12/LaTeX%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>作为一名研究僧，写论文，写文档，写日志，写报告，写书……还是比较平常的一件事，而office系列对于排版要求严格又惜时如金的人而言还是次选，所以开始入坑LaTeX，经过慎重的调研之后，选择了texlive+texstudio的形式开始入坑，当然还有很多其他选择，如果写完这篇还记得会在参考链接下附上<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[TeX Live & TeXstudio 安装手记](https://www.cnblogs.com/joyeecheung/p/3596255.html)
-">[1]</span></a></sup><sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第一篇tex文档编写](http://www.ctex.org/OnlineDocuments)
-">[2]</span></a></sup>。</p>
-<a id="more"></a>
-
-<h2 id="调研选择"><a href="#调研选择" class="headerlink" title="调研选择"></a>调研选择</h2><p>其实这部分只是自己做一点记录，急需安装教程的请跳过，请看第2节。</p>
-<p>经过多番Google、csdn以及知乎的查阅，大概了解了latex的编译环境和编辑环境，主流的有ctex、texlive、texstudio+winedt等等，我的选择变化大致如下：</p>
-<ol>
-<li><p>在上过的一门算法课中老师推荐了跨平台下的latex集成工具，ctex被建议在windows下使用，所以最初我的选择是ctex，附上清华镜像，<a href="https://mirrors.tuna.tsinghua.edu.cn/ctex/legacy/2.9/" target="_blank" rel="noopener external nofollow noreferrer" title="ctex清华镜像">Ctex-mirror</a>，官方网站<a href="http://www.ctex.org/HomePage" target="_blank" rel="noopener external nofollow noreferrer">CTeX</a>，加上ctex对中文的支持很好，且集成工具完整，当下载3G的安装包时，我又调研了不少教程，但是在某csdn的教程中看的评论有人评价ctex已不维护很久，同时ctex安装后会对系统环境变量进行覆盖，想想这个风险还是挺大的，毕竟安装需要配置换件变量的应用还挺多的，这篇<a href="https://liam.page/texlive/" target="_blank" rel="noopener external nofollow noreferrer">博文</a>有说明，接着看到在不少教程中推荐texlive（可谓官方），这是由 TUG (TeX User Group) 维护和发布的tex系统，接着有了第2个选择；</p>
-</li>
-<li><p>开始调研texlive，看看官网<a href="https://tug.org/texlive/" target="_blank" rel="noopener external nofollow noreferrer" title="texlive">TexLive</a>，维护还是比较好的，有2019最新版本，有多国镜像，有完整教学文档，感觉比ctex完善很多，果断放弃ctex，尽管这个时候安装文件也下载得差不多了，同时看到texstudio是tex编辑的不错的集成环境，官方的介绍是这样的：</p>
-</li>
-</ol>
-<p><em>TeXstudio is an integrated writing environment for creating LaTeX documents. Our goal is to make writing LaTeX as easy and comfortable as possible. Therefore TeXstudio has numerous features like syntax-highlighting, integrated viewer, reference checking and various assistants.</em></p>
-<p>安装提供zip压缩包直接解压使用，很适合我这种不喜欢安装包的人，因为便于迁移，抉择已定，开始下载和安装。</p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><blockquote>
-<p>先提供需要安装的文件（texlive和texstudio）的<a href="https://pan.baidu.com/s/1mRKV0VeNfjxhY6qGvSQdLw" target="_blank" rel="noopener external nofollow noreferrer" title="网盘链接">网盘链接</a>，提取码：uhbe </p>
-</blockquote>
-<p>官方提供了下载方式：</p>
-<ol>
-<li>texlive，<a href="https://mirror.bjtu.edu.cn/ctan/systems/texlive/Images/texlive2019.iso" target="_blank" rel="noopener external nofollow noreferrer">官方镜像</a>，如果访问不了，可以访问国内镜像，如<a href="http://mirrors.ustc.edu.cn/CTAN/systems/texlive/" target="_blank" rel="noopener external nofollow noreferrer">中科大镜像</a>；</li>
-<li>texstudio，我选择的是zip压缩文件形式，<a href="https://github.com/texstudio-org/texstudio/releases/download/2.12.16/texstudio-2.12.16-win-portable-qt5.zip" target="_blank" rel="noopener external nofollow noreferrer">下载</a>；</li>
-</ol>
-<p>当然也可以直接下载我网盘分享的镜像和安装包，可以使用官方提供的md5值进行比对验证文件没有被篡改。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="TexLive-安装"><a href="#TexLive-安装" class="headerlink" title="TexLive 安装"></a>TexLive 安装</h3><p>下载好iso文件之后，由于我是win10系统，可以直接加载iso镜像文件，因此双击打开即可，如果是win7及以前的版本需要先解压iso文件，双击打开install-tl-advanced.bat文件，会出现以下界面：</p>
-<p><img src="/images/post-texlive-install-1.jpg" alt="安装启动界面"><i class="img-caption">☆ 安装启动界面</i></p>
-<p>点击<em>修改</em>更换需要安装的文件路径，路径建议不要带有中文和特殊字符；<br>点击<em>Advanced</em>修改安装选项，但默认是所有都选上，所以可以不用修改（因为涉及调用的宏包以及scheme选择，如果不了解还是默认，避免后续麻烦）；<br>点击<em>安装</em>，然后就是漫长的安装过程，安装期间可以做自己的事情，安装完成后显示如下：</p>
-<p><img src="/images/post-texlive-install-2.jpg" alt="安装完成界面"><i class="img-caption">☆ 安装完成界面</i></p>
-<p>做一下安装是否成功的检查：</p>
-<ol>
-<li>在开始菜单中搜索<em>TeX Live command-line</em>，执行以下命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">xelatex -v</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>如果正常会显示如下信息，即正常的texlive版本号：</p>
-<p><img src="/images/post-texlive-test-1.jpg" alt="测试正常界面"><i class="img-caption">☆ 测试正常界面</i></p>
-<p>如果显示错误如下，应该是系统环境变量的问题，进入系统环境变量（系统属性-&gt;高级系统设置-&gt;环境变量），将<em>Path</em>环境变量新增texlive进去，即将安装好的texlive文件目录下的bin文件夹所在的路径作为环境变量。</p>
-<p><img src="/images/post-texlive-test-2.jpg" alt="测试错误界面"><i class="img-caption">☆ 测试错误界面</i></p>
-<h3 id="TexStudio-安装"><a href="#TexStudio-安装" class="headerlink" title="TexStudio 安装"></a>TexStudio 安装</h3><p>下载好zip压缩文件之后，直接解压就可以使用，十分方便！</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>主要是texstudio需要进行配置，更适合国内人士使用。</p>
-<h3 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h3><p>打开texstudio之后，在主界面中显示的是英文，点击菜单栏的<em>Options</em>，点击<em>Configure TeXstudio</em>，在<em>General</em>选项下将<em>Language</em>选择为<em>zh_CN</em>，点击确定；</p>
-<h3 id="编译环境设置"><a href="#编译环境设置" class="headerlink" title="编译环境设置"></a>编译环境设置</h3><p>在语言设置一样的窗口，此时显示语言是中文，点击<em>构建</em>-&gt;<em>默认编译器<em>设置为”XeLaTeX”，支持中文LaTeX文档；<br>将</em>构建</em>-&gt;<em>默认文献工具<em>设置为”Biber”；<br>在</em>命令</em>-&gt;<em>XeLaTeX</em>设置编译参数，使用 -shell-escape 参数以支持“minted”代码排版宏包；</p>
-<p>点击<em>构建</em>-&gt;<em>默认编译器<em>设置为”Latexmk”实现一次性编译；<br>将</em>命令</em>-&gt;<em>Latexmk<em>的 -pdf 参数修改为 -xelatex 以支持中文；<br>在</em>命令</em>-&gt;<em>Latexmk</em>设置编译参数，使用 -shell-escape 参数以支持“minted”代码排版宏包；<br>点击确定</p>
-<p>点击菜单栏<em>帮助</em>-&gt;<em>检查Latex安装信息</em>，若正确输出系统报告，说明texlive正常工作。</p>
-<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>第一篇tex文档参照这篇博客，<a href="https://blog.csdn.net/yeler082/article/details/80665186" target="_blank" rel="noopener external nofollow noreferrer">Texlive+TeXstudio 入门安装使用</a>，照着输入，然后点击两个绿色箭头重叠的按钮，可以看到实时生成的文档。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.cnblogs.com/joyeecheung/p/3596255.html" target="_blank" rel="noopener external nofollow noreferrer">TeX Live &amp; TeXstudio 安装手记</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://www.ctex.org/OnlineDocuments" target="_blank" rel="noopener external nofollow noreferrer">第一篇tex文档编写</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex安装</tag>
-        <tag>Windows10</tag>
       </tags>
   </entry>
 </search>
