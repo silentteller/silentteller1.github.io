@@ -1,2 +1,3 @@
-# temp file
-# test in codebeat
+import sys
+
+return("%s"%sys.argv[0])
