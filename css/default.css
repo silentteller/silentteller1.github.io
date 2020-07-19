@@ -1,19 +1,21 @@
 body,html{height:100%;margin:0}
-body{font: normal 100%;font-family:'Open Sans','Helvetica Neue','Hiragino Sans GB','LiHei Pro',Arial,sans-serif;color: #333}
+body{font-size: 100%;font-style:normal;font-family:'Open Sans','Helvetica Neue','Hiragino Sans GB','LiHei Pro',Arial,sans-serif;color: #333}
 div{text-align:center}
 .night{background-color: #292a2d; color: #F8F8FF;}
-.wrapper{min-height:auto;width:100%;margin:0 auto}
-.wrapper{position:relative;left:0;width:auto;text-align:center;top:15%;left:0%;margin-left:0em;margin-top:0em;-webkit-user-select:none;-moz-user-select:none;user-select:none}
-#main{padding: 1.625em;padding-bottom: 10em;margin-bottom:5%}
-#footer{position:absolute;bottom: -10;padding: 0.625em 0;width:100%;margin-top:1.5em}
-#RightDownBtn{position: relative;padding: .3125rem .625rem;}
+.wrapper{min-height: auto; width: 100%; margin: 0 auto}
+.wrapper{position: relative; left: 0; width: auto; text-align: center; top: 15%; left: 0%; margin-left: 0em; margin-top: 0em; -webkit-user-select: none; -moz-user-select: none; user-select: none}
+#main{padding: 1.625em; padding-bottom: 10em; margin-bottom: 5%}
+#footer{position:absolute;bottom: -6.5em;padding: 0.625em 0;width:100%;margin-top:1.5em}
+#RightDownBtn{position: relative; display: table; height: fit-content; margin:0 auto; padding: .3125rem .625rem .0825rem .625rem; box-shadow: 0 0 0.3125rem 0 rgba(0,0,0,.4); border-radius: 0.6rem}
 h1{font-family:Montserrat,'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:1.875em;letter-spacing:0.5625em;text-transform:uppercase;margin:0.75em 0;left:0.25em}
 h2{color:#999;font-weight:400;font-size:1em;letter-spacing:.12em;margin-bottom:1.875em;left:0.1875em}
 h1,h2{position:relative}
 p{font-size:0.875em;line-height:2em;margin:0;letter-spacing:0.125em}
 canvas{position:absolute;top:0;left:0;z-index:0;width:100%;height:100%;pointer-events:none}
 a{color:#999;text-decoration:none;transition:color .2s ease}
-a:hover{color:#5499C7}
+a:hover{color:#5499C7; cursor: pointer}
+
+.xuanzhuan{-webkit-animation:rotate 3s linear infinite;-moz-animation:rotate 3s linear infinite;-o-animation:rotate 3s linear infinite; animation:rotate 3s linear infinite}@-webkit-keyframes rotate{from{-webkit-transform:rotate(0)}to{-webkit-transform:rotate(360deg)}}@-moz-keyframes rotate{from{-moz-transform:rotate(0)}to{-moz-transform:rotate(359deg)}}@-o-keyframes rotate{from{-o-transform:rotate(0)}to{-o-transform:rotate(359deg)}}@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(359deg)}}.rotating{-webkit-animation:rotate 8s linear infinite;-moz-animation:rotate 8s linear infinite;-ms-animation:rotate 8s linear infinite;-o-animation:rotate 8s linear infinite;animation:rotate 8s linear infinite}
 
 /* 深色模式的颜色设置，需要自己手动逐个添加并适配 */
 .night #page,
@@ -22,7 +24,7 @@ a:hover{color:#5499C7}
 .night .art-content #archives .al_mon_list .al_mon,
 .night .art-content #archives .al_mon_list span,
 .night body{
-    color:var(--night-color)!important
+    color:#333!important
 }
 .night .art-content #archives .al_mon_list .al_mon,
 .night .art-content #archives .al_mon_list span,
@@ -36,7 +38,9 @@ a:hover{color:#5499C7}
 .night .label {
     color: rgba(255, 255, 255, .6);
 }
-
+.night #RightDownBtn{
+    position: relative; display: table; height: fit-content; margin:0 auto; padding: .3125rem .625rem .0825rem .625rem; box-shadow: 0 0 0.3125rem 0 rgba(0,0,0,.4); filter: brightness(0.6); background: #FFFFFF; border-radius: 0.6rem
+}
 .night #page,
 .night body {
     color: #F8F8FF;
