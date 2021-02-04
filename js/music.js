@@ -1,5 +1,5 @@
 function music_on(){
-    var musicbox=["https://github.com/linwhitehat/linwhitehat.github.io/blob/master/music/JAY夜曲.mp3","https://github.com/linwhitehat/linwhitehat.github.io/blob/master/music/JAY七里香.mp3","https://github.com/linwhitehat/linwhitehat.github.io/blob/master/music/JAY不能说的秘密.mp3","https://github.com/linwhitehat/linwhitehat.github.io/blob/master/music/JAY夏天的风.mp3","https://github.com/linwhitehat/linwhitehat.github.io/blob/master/music/JAY稻香.mp3","https://github.com/linwhitehat/linwhitehat.github.io/blob/master/music/JAY红尘客栈.mp3"];
+    var musicbox=["https://linwhitehat.github.io/music/JAY夜曲.mp3","https://linwhitehat.github.io/music/JAY七里香.mp3","https://linwhitehat.github.io/music/JAY不能说的秘密.mp3","https://linwhitehat.github.io/music/JAY夏天的风.mp3","https://linwhitehat.github.io/music/JAY稻香.mp3","https://linwhitehat.github.io/music/JAY红尘客栈.mp3"];
     var audio1=document.getElementById('bg_music');
     if(audio1.paused){
         var index=Math.floor((Math.random()*musicbox.length));
